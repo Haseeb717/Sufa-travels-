@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transport_type: 1
+  expenditure_type: MyString
+  no_of_seats: 1
+  arrival_time: 
+  departure_time: 
+  arrival_place: MyString
+  departure_place: MyString
+  payment: 1.5
+  user_id: 
+
+two:
+  transport_type: 1
+  expenditure_type: MyString
+  no_of_seats: 1
+  arrival_time: 
+  departure_time: 
+  arrival_place: MyString
+  departure_place: MyString
+  payment: 1.5
+  user_id: 

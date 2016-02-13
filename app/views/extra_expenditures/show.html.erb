@@ -1,0 +1,31 @@
+<div class="listing-products marTop100">
+  <div class="container">
+    <div class="panel panel-default">
+		  <div class="panel-body">
+		    <div class="col-lg-5 centerForm">
+			    <p>
+					  <strong>Payment:</strong>
+					  Rs.<%= @extra_expenditure.payment %>
+					</p>
+
+					<p>
+					  <strong>Expenditure type:</strong>
+					  <%= @extra_expenditure.expenditure_type %>
+					</p>
+					<p>
+					  <strong>Reason:</strong>
+					  <%= @extra_expenditure.reason %>
+					</p>
+					<% if !@extra_expenditure.image.path.nil? %>
+						<p><strong>Recipt Pic:</strong></p>
+						<p>
+						  <%= image_tag @extra_expenditure.image.url(:large) %>
+						</p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+<%= link_to 'Edit', edit_extra_expenditure_path(@extra_expenditure) %> |
+<%= link_to 'Back', extra_expenditures_path %>

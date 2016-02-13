@@ -1,0 +1,73 @@
+<div class="listing-products marTop100">
+  <div class="row">
+    <div class="col-lg-12" style="padding-left:0px;">
+      <div class="container">
+        <h1>Daily Status</h1>
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <div class="col-lg-11">
+                <table class="table table-striped table-bordered listing-products-table">
+                  <thead>
+                    <tr>
+                      <th style="color:#5ca545">Name</th>
+                      <th style="color:#5ca545">Hotel Expenditures</th>
+                      <th style="color:#5ca545">Transport Expenditures</th>
+                      <th style="color:#5ca545">Food Expenditures</th>
+                      <th style="color:#5ca545">Extra Expenditures</th>
+                      <th style="color:#5ca545">Balance Added</th>
+                      <th style="color:#5ca545">Total Expenditure</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @users.each do |user| %>
+                      <% credit_added = UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,@start_date.beginning_of_day,@end_date.end_of_day)%>
+                      <% u_credit = 0 %>
+                      <% credit_added.each do |credit| %>
+                        <% u_credit = u_credit + credit.amount %>
+                      <% end %> 
+
+                      <% f_expenditures = FoodExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,@start_date.beginning_of_day,@end_date.end_of_day) %>
+                      <% f_expenses = 0 %>
+                      <% f_expenditures.each do |credit| %>
+                        <% f_expenses = f_expenses + credit.payment %>
+                      <% end %> 
+
+                      <% t_expenditures = TransportExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,@start_date.beginning_of_day,@end_date.end_of_day)%>
+                      <% t_expenses = 0 %>
+                      <% t_expenditures.each do |credit| %>
+                        <% t_expenses = t_expenses + credit.payment %>
+                      <% end %> 
+
+                      <% e_expenditures = ExtraExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,@start_date.beginning_of_day,@end_date.end_of_day) %>
+                      <% e_expenses = 0 %>
+                      <% e_expenditures.each do |credit| %>
+                        <% e_expenses = e_expenses + credit.payment %>
+                      <% end %> 
+
+                      <% h_expenditures = HotelExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,@start_date.beginning_of_day,@end_date.end_of_day) %>
+                      <% h_expenses = 0 %>
+                      <% h_expenditures.each do |credit| %>
+                        <% h_expenses = h_expenses + credit.total_amount %>
+                      <% end %> 
+
+                      <tr>
+                        <td><%= link_to user.name, show_user_home_path(user) %></td>
+                        <td><%= h_expenses %></td>
+                        <td><%= t_expenses %></td>
+                        <td><%= f_expenses %></td>
+                        <td><%= e_expenses %></td>                       
+                        <td><%= u_credit %></td>
+                        <td><%= h_expenses + t_expenses + f_expenses + e_expenses %></td>
+                      </tr>
+
+                    <% end %>
+                    
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

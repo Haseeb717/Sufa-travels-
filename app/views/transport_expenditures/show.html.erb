@@ -1,0 +1,49 @@
+<div class="listing-products marTop100">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-lg-5 centerForm">
+          <p>
+            <strong>Transport type:</strong>
+            <%= @transport_expenditure.transport_type %>
+          </p>
+
+          <p>
+            <strong>Expenditure type:</strong>
+            <%= @transport_expenditure.expenditure_type %>
+          </p>
+
+          <p>
+            <strong>No of seats:</strong>
+            <%= @transport_expenditure.no_of_seats %>
+          </p>
+
+          <p>
+            <strong>Arrival place:</strong>
+            <%= @transport_expenditure.arrival_place %>
+          </p>
+
+          <p>
+            <strong>Departure place:</strong>
+            <%= @transport_expenditure.departure_place %>
+          </p>
+
+          <p>
+            <strong>Payment:</strong>
+            <%= @transport_expenditure.payment %>
+          </p>
+
+          <% if !@transport_expenditure.image.path.nil? %>
+            <p><strong>Recipt Pic:</strong></p>
+            <p>
+              <%= image_tag @transport_expenditure.image.url(:large) %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_transport_expenditure_path(@transport_expenditure) %> |
+<%= link_to 'Back', transport_expenditures_path %>

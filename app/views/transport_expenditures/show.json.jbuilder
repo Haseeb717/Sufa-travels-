@@ -1,0 +1,1 @@
+json.extract! @transport_expenditure, :id, :transport_type, :expenditure_type, :no_of_seats, :arrival_time, :departure_time, :arrival_place, :departure_place, :payment, :user_id, :created_at, :updated_at

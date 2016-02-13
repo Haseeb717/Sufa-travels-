@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expenditure_type: 1.5
+  checked_in_date: 2016-01-10 13:48:29
+  checked_out_date: 2016-01-10 13:48:29
+  total_days: 1
+  charges_per_day: 1
+  no_of_rooms: 1
+  room_type: 1
+  total_amount: 1.5
+  hotel_name: MyString
+  user_id: 
+  comments: MyText
+
+two:
+  expenditure_type: 1.5
+  checked_in_date: 2016-01-10 13:48:29
+  checked_out_date: 2016-01-10 13:48:29
+  total_days: 1
+  charges_per_day: 1
+  no_of_rooms: 1
+  room_type: 1
+  total_amount: 1.5
+  hotel_name: MyString
+  user_id: 
+  comments: MyText

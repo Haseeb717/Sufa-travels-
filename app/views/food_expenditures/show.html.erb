@@ -1,0 +1,42 @@
+<div class="listing-products marTop100">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-lg-5 centerForm">
+          <p>
+            <strong>Food type:</strong>
+            <%= @food_expenditure.food_type %>
+          </p>
+
+          <p>
+            <strong>Expenditure type:</strong>
+            <%= @food_expenditure.expenditure_type %>
+          </p>
+
+          <p>
+            <strong>Hotel name:</strong>
+            <%= @food_expenditure.hotel_name %>
+          </p>
+
+          <p>
+            <strong>Payment:</strong>
+            <%= @food_expenditure.payment %>
+          </p>
+
+          <p>
+            <strong>No of persons:</strong>
+            <%= @food_expenditure.no_of_persons %>
+          </p>
+          <% if !@food_expenditure.image.path.nil? %>
+            <p><strong>Recipt Pic:</strong></p>
+            <p>
+              <%= image_tag @food_expenditure.image.url(:large) %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to 'Edit', edit_food_expenditure_path(@food_expenditure) %> |
+<%= link_to 'Back', food_expenditures_path %>

@@ -1,0 +1,58 @@
+<div class="listing-products marTop100">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-lg-5 centerForm">
+          <p>
+            <strong>Expenditure type:</strong>
+            <%= @hotel_expenditure.expenditure_type %>
+          </p>
+
+          <p>
+            <strong>Total days:</strong>
+            <%= @hotel_expenditure.total_days %>
+          </p>
+
+          <p>
+            <strong>Charges per day:</strong>
+            <%= @hotel_expenditure.charges_per_day %>
+          </p>
+
+          <p>
+            <strong>No of rooms:</strong>
+            <%= @hotel_expenditure.no_of_rooms %>
+          </p>
+
+          <p>
+            <strong>Room type:</strong>
+            <%= @hotel_expenditure.room_type %>
+          </p>
+
+          <p>
+            <strong>Total amount:</strong>
+            <%= @hotel_expenditure.total_amount %>
+          </p>
+
+          <p>
+            <strong>Hotel name:</strong>
+            <%= @hotel_expenditure.hotel_name %>
+          </p>
+
+          <p>
+            <strong>Comments:</strong>
+            <%= @hotel_expenditure.comments %>
+          </p>
+          <% if !@hotel_expenditure.image.path.nil? %>
+            <p><strong>Recipt Pic:</strong></p>
+            <p>
+              <%= image_tag @hotel_expenditure.image.url(:large) %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_hotel_expenditure_path(@hotel_expenditure) %> |
+<%= link_to 'Back', hotel_expenditures_path %>

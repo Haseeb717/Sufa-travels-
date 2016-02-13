@@ -1,0 +1,194 @@
+<div class="listing-products marTop100">
+  <div class="row">
+    <!-- <div class="col-lg-2">
+      <% if !current_user.image.path.nil? %>
+        <p style="margin-left:10px;margin-right:10px;margin-top:40px;">
+          <%= image_tag current_user.image.url(:small_large)  %>
+        </p>
+        <p style="margin-left:10px;margin-right:10px;margin-top:20px;">
+          <b>Total Amount:</b> <%= current_user.total_amount  %>
+        </p>
+        <p style="margin-left:10px;margin-right:10px;margin-top:10px;">
+          <b>Total Expenditures:</b> <%= current_user.total_expenditures_amount  %>
+        </p>
+        <p style="margin-left:10px;margin-right:10px;margin-top:10px;">
+          <b>Current Amount:</b> <%= current_user.current_amount  %>
+        </p>
+      <% end %>
+    </div> -->
+    <div class="col-lg-12" style="padding-left:0px;">
+      <div class="container">
+        <% if !@food_expenditures.blank? %>
+          <div class="col-lg-11">
+              <h3 class="page-header">
+                  Food Expenses <div class="pull-right"><%= link_to 'View All', food_expenditures_path, class:"btn btn-default" %></div>
+              </h3>
+          </div>
+          <div class="col-lg-11">
+            <table class="table table-striped table-bordered listing-products-table">
+              <thead>
+                <tr>
+                  <th style="color:#5ca545">Hotel Name</th>
+                  <th style="color:#5ca545">Expenditure Type</th>
+                  <th style="color:#5ca545">Food Type</th>
+                  <th style="color:#5ca545">No of Persons</th>
+                  <th style="color:#5ca545">Payment</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @food_expenditures.limit(5).each do |ad| %>
+                  <tr>
+                    <td><%= ad.hotel_name %></td>
+                    <td><%= ad.expenditure_type %></td>
+                    <td><%= ad.food_type %></td>
+                    <td><%= ad.no_of_persons %></td>
+                    <td><%= ad.payment %></td>              
+                    <td style="text-align:right;">                
+                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
+                      <% if ad.edit_able? %>
+                        <%= link_to 'Edit', edit_food_expenditure_path(ad),:class=>"list-product-show" %>
+                      <% else %>
+                        <%= link_to 'Edit Request', edit_request_food_expenditure_path(ad),:class=>"list-product-edit" %>
+                      <% end %>
+                      
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+        <% end %>
+
+        <% if !@hotel_expenditures.blank? %>
+          <div class="col-lg-11">
+              <h3 class="page-header">
+                  Hotel Expenses <div class="pull-right"><%= link_to 'View All', hotel_expenditures_path, class:"btn btn-default" %></div>
+              </h3>
+          </div>
+          <div class="col-lg-11">
+            <table class="table table-striped table-bordered listing-products-table">
+              <thead>
+                <tr>
+                  <th style="color:#5ca545">Hotel Name</th>
+                  <th style="color:#5ca545">Total Days</th>
+                  <th style="color:#5ca545">No of Rooms</th>
+                  <th style="color:#5ca545">Room Type</th>
+                  <th style="color:#5ca545">Charges Per Day</th>
+                  <th style="color:#5ca545">Total Amount</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @hotel_expenditures.limit(5).each do |ad| %>
+                  <tr>
+                    <td><%= ad.hotel_name %></td>
+                    <td><%= ad.total_days %></td>
+                    <td><%= ad.no_of_rooms %></td>
+                    <td><%= ad.room_type %></td>
+                    <td><%= ad.charges_per_day %></td>
+                    <td><%= ad.total_days %></td>              
+                    <td style="text-align:right;">                
+                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
+                      <% if ad.edit_able? %>
+                        <%= link_to 'Edit', edit_hotel_expenditure_path(ad),:class=>"list-product-show" %>
+                      <% else %>
+                        <%= link_to 'Edit Request', edit_request_hotel_expenditure_path(ad),:class=>"list-product-edit" %>
+                      <% end %>
+                      
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+        <% end %>
+
+        <% if !@transport_expenditures.blank? %>
+          <div class="col-lg-11">
+              <h3 class="page-header">
+                  Transport Expenses <div class="pull-right"><%= link_to 'View All', transport_expenditures_path, class:"btn btn-default" %></div>
+              </h3>
+          </div>
+          <div class="col-lg-11">
+            <table class="table table-striped table-bordered listing-products-table">
+              <thead>
+                <tr>
+                  <th style="color:#5ca545">Transport</th>
+                  <th style="color:#5ca545">No of seats</th>
+                  <th style="color:#5ca545">Departure place</th>
+                  <th style="color:#5ca545">Arrival place</th>
+                  
+                  <th style="color:#5ca545">Payment</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @transport_expenditures.limit(5).each do |ad| %>
+                  <tr>
+                    <td><%= ad.transport_type %></td>
+                    <td><%= ad.no_of_seats %></td>
+                    <td><%= ad.arrival_place %></td>
+                    <td><%= ad.departure_place %></td>
+                    <td><%= ad.payment %></td>               
+                    <td style="text-align:right;">                
+                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
+                      <% if ad.edit_able? %>
+                        <%= link_to 'Edit', edit_transport_expenditure_path(ad),:class=>"list-product-show" %>
+                      <% else %>
+                        <%= link_to 'Edit Request', edit_request_transport_expenditure_path(ad),:class=>"list-product-edit" %>
+                      <% end %>
+                      
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+        <% end %>
+
+        <% if !@extra_expenditures.blank? %>
+          <div class="col-lg-11">
+              <h3 class="page-header">
+                  Miscellaneous Expenses <div class="pull-right"><%= link_to 'View All', extra_expenditures_path, class:"btn btn-default" %></div>
+              </h3>
+          </div>
+          <div class="col-lg-11">
+            <table class="table table-striped table-bordered listing-products-table">
+              <thead>
+                <tr>
+                  <th style="color:#5ca545">Expenditure Type</th>
+                  <th style="color:#5ca545">Payment</th>
+                  <th style="color:#5ca545">Reason</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @extra_expenditures.limit(5).each do |ad| %>
+                  <tr>
+                    <td><%= ad.expenditure_type %></td>
+                    <td><%= ad.payment %></td>
+                    <td><%= ad.reason %></td>              
+                    <td style="text-align:right;">                
+                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
+                      <% if ad.edit_able? %>
+                        <%= link_to 'Edit', edit_extra_expenditure_path(ad),:class=>"list-product-show" %>
+                      <% else %>
+                        <%= link_to 'Edit Request', edit_request_extra_expenditure_path(ad),:class=>"list-product-edit" %>
+                      <% end %>
+                      
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SufaTravels</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-size:100% 84px;">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "My Profile", edit_user_registration_path %>
+            </li>
+            <li>
+                <%= link_to "Logout - " + current_user.name, destroy_user_session_path,
+                :method => :delete %>
+            </li> 
+          <% else %>
+            <li>
+              <%= link_to "Login", new_user_session_path %>
+            </li>
+            
+          <% end %>
+          <li>
+            <% if user_signed_in? && current_user.user? %>
+              <div class="dropdown" style="float:left;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Add Expenses
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
+                  <li><%= link_to "Add Food Expenses", new_food_expenditure_path %></li>
+                  <li><%= link_to "Add Hotel Expenses", new_hotel_expenditure_path %></li>
+                  <li><%= link_to "Add Transport Expenses", new_transport_expenditure_path %></li>
+                  <li><%= link_to "Add Extras Expenses", new_extra_expenditure_path %></li>
+                </ul>
+              </div>
+              <div class="dropdown" style="float:left;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  View Expenses
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
+                  <li><%= link_to "View Expenses", homes_path %></li>
+                  <li><%= link_to "View Food Expenses", food_expenditures_path %></li>
+                  <li><%= link_to "View Hotel Expenses", hotel_expenditures_path %></li>
+                  <li><%= link_to "View Transport Expenses", transport_expenditures_path %></li>
+                  <li><%= link_to "View Extras Expenses", extra_expenditures_path %></li>
+                  <li><%= link_to "View Monthly Status", user_report_homes_path %></li>
+                  <li><%= link_to "View Daily Status", daily_report_homes_path %></li>
+                </ul>
+              </div>
+            <% elsif user_signed_in? && current_user.admin? %>
+              <div class="dropdown" style="float:left;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
+                  <li><%= link_to "Add New User", add_new_user_homes_path %></li>
+                  <li><%= link_to "List of all Users", list_all_users_homes_path %></li>
+                  <li><%= link_to "Edit Requests", edit_requests_homes_path %></li>
+                  <li><%= link_to "Add Balance", add_balance_homes_path %></li>
+                  <li><%= link_to "Monthly Report", ceo_monthly_report_homes_path %></li>
+                  <li><%= link_to "Daily Report", ceo_daily_report_homes_path %></li>
+                  <li><%= link_to "Food Report", f_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Hotel Report", h_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Transport Report", t_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Extra Report", e_expenditure_report_homes_path %></li>
+                  
+                </ul>
+              </div>
+            <% elsif user_signed_in? && current_user.super_admin? %>
+              <div class="dropdown" style="float:left;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
+                  <li><%= link_to "Monthly Report", ceo_monthly_report_homes_path %></li>
+                  <li><%= link_to "Daily Report", ceo_daily_report_homes_path %></li>
+                  <li><%= link_to "Balance Requests", super_admin_dashboard_homes_path %></li>
+                  <li><%= link_to "Food Report", f_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Hotel Report", h_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Transport Report", t_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Extra Report", e_expenditure_report_homes_path %></li>
+
+                </ul>
+              </div>
+            <% elsif user_signed_in? && current_user.ceo? %>
+              <div class="dropdown" style="float:left;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
+                  <li><%= link_to "Monthly Report", ceo_monthly_report_homes_path %></li>
+                  <li><%= link_to "Daily Report", ceo_daily_report_homes_path %></li>
+                </ul>
+              </div>
+            <% end %>
+          </li> 
+        </ul>
+    </div>
+  </div>
+</nav>
+<%= yield %>
+
+</body>
+</html>

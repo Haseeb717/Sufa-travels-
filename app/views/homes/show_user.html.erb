@@ -1,0 +1,61 @@
+<div class="listing-products marTop100">
+  <div class="row">
+    <div class="col-lg-12" style="padding-left:0px;">
+      <div class="container">
+        <h1>User</h1>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-lg-5" style="padding: 25px 0 0 20px">
+
+              <p class="form-group">
+                <strong class="control-label">Name:</strong>
+                <%= @user.name %>
+              </p>
+
+              <p class="form-group">
+                <strong class="control-label">Email:</strong>
+                <%= @user.email %>
+              </p>
+
+              <p class="form-group">
+                <strong class="control-label">Total Balance:</strong>
+                <%= @user.total_amount %>
+              </p>
+
+              <p class="form-group">
+                <strong class="control-label">Remaining Balance:</strong>
+                <%= @user.current_amount %>
+              </p>
+              
+              <p class="form-group">
+                <strong class="control-label">Food Expenditure:</strong>
+                <%= food = @user.extra_expenditures.map(&:payment).sum %>
+              </p>
+              <p class="form-group">
+                <strong class="control-label">Transport Expenditure:</strong>
+                <%= transport = @user.transport_expenditures.map(&:payment).sum  %>
+              </p>
+              
+              <p class="form-group">
+                <strong class="control-label">Hotel Expenditure:</strong>
+                <%= hotel = @user.hotel_expenditures.map(&:total_amount).sum %>
+              </p>
+              <p class="form-group">
+                <strong class="control-label">Miscellaneous Expenditure:</strong>
+                <%= extra = @user.extra_expenditures.map(&:payment).sum %>
+              </p>
+
+              <p class="form-group">
+                <strong class="control-label">Total Expenditures:</strong>
+                <%= food+hotel+extra+transport %>
+              </p>
+            </div>
+            <div class="col-lg-7">
+              <%= column_chart({"Food" => food,"Hotel"=>hotel,"transport"=>transport,"Extra"=>extra}) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
