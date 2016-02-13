@@ -34,7 +34,6 @@ gem 'active_median', '~> 0.1.0'
 # gem 'bcrypt', '~> 3.1.7'
 # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
-gem 'jquery-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'rails_12factor'
