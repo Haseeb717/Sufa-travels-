@@ -12,6 +12,12 @@
                 <%= @user.name %>
               </p>
 
+              <% if !@user.image.path.nil? %>
+                <p>
+                  <%= image_tag @user.image.url(:large) %>
+                </p>
+              <% end %>
+
               <p class="form-group">
                 <strong class="control-label">Email:</strong>
                 <%= @user.email %>
@@ -49,6 +55,7 @@
                 <strong class="control-label">Total Expenditures:</strong>
                 <%= food+hotel+extra+transport %>
               </p>
+
             </div>
             <div class="col-lg-7">
               <%= column_chart({"Food" => food,"Hotel"=>hotel,"transport"=>transport,"Extra"=>extra}) %>

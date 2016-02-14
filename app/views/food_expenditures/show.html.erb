@@ -3,36 +3,68 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="col-lg-5 centerForm">
-          <p>
-            <strong>Food type:</strong>
-            <%= @food_expenditure.food_type %>
-          </p>
+          <table>
+          <tr>
+            <td><strong>Voucher:</strong></td>
+            <td><%= @food_expenditure.voucher_reference %></td>
+          </tr>
 
-          <p>
-            <strong>Expenditure type:</strong>
-            <%= @food_expenditure.expenditure_type %>
-          </p>
+          <tr>
+            <td><strong>Guest Name:</strong></td>
+            <td><%= @food_expenditure.guest_name %></td>
+          </tr>
 
-          <p>
-            <strong>Hotel name:</strong>
-            <%= @food_expenditure.hotel_name %>
-          </p>
+          
 
-          <p>
-            <strong>Payment:</strong>
-            <%= @food_expenditure.payment %>
-          </p>
+          <tr>
+            <td><strong>Food type:</strong></td>
+            <td><%= @food_expenditure.food_type %></td>
+          </tr>
 
-          <p>
-            <strong>No of persons:</strong>
-            <%= @food_expenditure.no_of_persons %>
-          </p>
+          
+
+          <tr>
+            <td><strong>Hotel name:</strong></td>
+            <td><%= @food_expenditure.hotel_name %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Food type:</strong></td>
+            <td><%= @food_expenditure.food_type %></td>
+          </tr>
+
+          <tr>
+            <td><strong>On Request Of:</strong></td>
+            <td><%= @food_expenditure.on_request_of %></td>
+          </tr>
+
+          <tr>
+            <td><strong>No of persons:</strong><td>
+            <td><%= @food_expenditure.no_of_persons %></td>
+          </tr>
+
+
+          <tr>
+            <td><strong>Payment:</strong></td>
+            <td><%= @food_expenditure.payment %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Comments:</strong></td>
+            <td><%= @food_expenditure.comments %></td>
+          </tr>
+
+
+
+          
           <% if !@food_expenditure.image.path.nil? %>
-            <p><strong>Recipt Pic:</strong></p>
-            <p>
-              <%= image_tag @food_expenditure.image.url(:large) %>
-            </p>
+            <tr><td><strong>Recipt Pic:</strong></td>
+              <td>
+                <%= image_tag @food_expenditure.image.url(:large) %>
+              </td>
+            </tr>
           <% end %>
+        </table>
         </div>
       </div>
     </div>

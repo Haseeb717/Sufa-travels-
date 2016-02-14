@@ -3,56 +3,127 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="col-lg-5 centerForm">
-          <p>
-            <strong>Expenditure type:</strong>
-            <%= @hotel_expenditure.expenditure_type %>
-          </p>
+          <table>
+            <tr>
+              <td><strong>Voucher:</strong></td>
+              <td><%= @hotel_expenditure.voucher_reference %></td>
+            </tr>
+            <tr>
+              <td><strong>Guest Name:</strong></td>
+              <td><%= @hotel_expenditure.guest_name %></td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>Supplier Name:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.supplier_name %>
+              </td>
+            </tr>
 
-          <p>
-            <strong>Total days:</strong>
-            <%= @hotel_expenditure.total_days %>
-          </p>
+            <tr>
+              <td>
+                <strong>Hotel Name:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.hotel_name %>
+              </td>
+            </tr>
 
-          <p>
-            <strong>Charges per day:</strong>
-            <%= @hotel_expenditure.charges_per_day %>
-          </p>
+            <tr>
+              <td>
+                <strong>Supplier Name:</strong>
+                
+              </td>
+              <td>
+                <%= @hotel_expenditure.supplier_name %>
+              </td>
+            </tr>
 
-          <p>
-            <strong>No of rooms:</strong>
-            <%= @hotel_expenditure.no_of_rooms %>
-          </p>
+            <tr>
+              <td>
+                <strong>Checked In:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.checked_out_date.to_date %>
+              </td>
+            </tr>
 
-          <p>
-            <strong>Room type:</strong>
-            <%= @hotel_expenditure.room_type %>
-          </p>
+            <tr>
+              <td>
+                <strong>Checked Out::</strong>
+                
+              </td>
+              <td>
+                <%= @hotel_expenditure.supplier_name %>
+              </td>
+            </tr>
 
-          <p>
-            <strong>Total amount:</strong>
-            <%= @hotel_expenditure.total_amount %>
-          </p>
+            <tr>
+              <td>
+                <strong>Total days::</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.total_days %>
+              </td>
+            </tr>
 
-          <p>
-            <strong>Hotel name:</strong>
-            <%= @hotel_expenditure.hotel_name %>
-          </p>
+            <tr>
+              <td>
+                <strong>Charges per day:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.charges_per_day %>
+              </td>
+            </tr>
 
-          <p>
-            <strong>Comments:</strong>
-            <%= @hotel_expenditure.comments %>
-          </p>
-          <% if !@hotel_expenditure.image.path.nil? %>
-            <p><strong>Recipt Pic:</strong></p>
-            <p>
-              <%= image_tag @hotel_expenditure.image.url(:large) %>
-            </p>
-          <% end %>
+            <tr>
+              <td>
+                <strong>No of rooms:</strong>
+                <%= @hotel_expenditure.no_of_rooms %>
+              </td>
+              <td>
+                <%= @hotel_expenditure.no_of_rooms %>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Room type:</strong></td>
+              <td><%= @hotel_expenditure.room_type %></td>
+            </tr>
+
+            <tr>
+              <td><strong>Room Basis:</strong></td>
+              <d><%= @hotel_expenditure.room_basis %></td>
+            </tr>
+
+            <tr>
+              <td><strong>Total amount:</strong></td>
+              <td><%= @hotel_expenditure.total_amount %></td>
+            </tr>
+
+
+            <tr>
+              <td><strong>Comments:</strong></td>
+              <td><%= @hotel_expenditure.comments %></td>
+            </tr>
+
+            <% if !@hotel_expenditure.image.path.nil? %>
+              <tr>
+                <td><strong>Recipt Pic:</strong></td>
+                <td>
+                  <%= image_tag @hotel_expenditure.image.url(:large) %>
+                </td> 
+              </tr>
+            <% end %>
+          </table>
         </div>
+        
       </div>
     </div>
   </div>
 </div>
 
-<%= link_to 'Edit', edit_hotel_expenditure_path(@hotel_expenditure) %> |
-<%= link_to 'Back', hotel_expenditures_path %>
+
+
