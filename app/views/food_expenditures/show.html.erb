@@ -39,8 +39,8 @@
           </tr>
 
           <tr>
-            <td><strong>No of persons:</strong><td>
-            <td><%= @food_expenditure.no_of_persons %></td>
+            <td><strong>No of persons:</strong></td>
+            <td><%= @food_expenditure.no_of_persons.to_s %></td>
           </tr>
 
 
@@ -70,5 +70,3 @@
     </div>
   </div>
 </div>
-<%= link_to 'Edit', edit_food_expenditure_path(@food_expenditure) %> |
-<%= link_to 'Back', food_expenditures_path %>
