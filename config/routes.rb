@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       get 'h_expenditure_report'
       get 'e_expenditure_report'
       get 't_expenditure_report'
+      get 'status_report'
+      get 'accountant_status_report'
     end
   end
   

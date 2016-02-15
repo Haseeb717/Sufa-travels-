@@ -57,6 +57,8 @@
                   <li><%= link_to "View Extras Expenses", extra_expenditures_path %></li>
                   <li><%= link_to "View Monthly Status", user_report_homes_path %></li>
                   <li><%= link_to "View Daily Status", daily_report_homes_path %></li>
+                  <li><%= link_to "View Status", status_report_homes_path %></li>
+                  
                 </ul>
               </div>
             <% elsif user_signed_in? && current_user.admin? %>
@@ -76,6 +78,8 @@
                   <li><%= link_to "Hotel Report", h_expenditure_report_homes_path %></li>
                   <li><%= link_to "Transport Report", t_expenditure_report_homes_path %></li>
                   <li><%= link_to "Extra Report", e_expenditure_report_homes_path %></li>
+                  <li><%= link_to "View All", accountant_status_report_homes_path %></li>
+                  
                   
                 </ul>
               </div>

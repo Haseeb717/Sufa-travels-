@@ -36,7 +36,7 @@ gem 'active_median', '~> 0.1.0'
 gem 'jquery-ui-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'rails_12factor'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -8,8 +8,8 @@
             <%= form_tag(food_expenditures_path, :method => :get) do %>
               <ul>
                 <li>
-                <% u = User.user.all %>
-                <%= select_tag(:user, options_from_collection_for_select(u, "id", "name",@user), prompt: "Select Employee",class: 'form-control select-option product_like_sort campaign_sort') %>
+                  <% u = User.user.all %>
+                  <%= select_tag(:user, options_from_collection_for_select(u, "id", "name",@user), prompt: "Select Employee",class: 'form-control select-option product_like_sort campaign_sort') %>
                 </li>
               
                 <li>

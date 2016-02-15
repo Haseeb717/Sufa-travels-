@@ -215,6 +215,75 @@ class HomesController < ApplicationController
       @extra_expenditures = ExtraExpenditure.where(:user_id=>params["user"],:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13) 
     end
   end
+
+  def status_report
+
+    if params["start_date"].nil?  || params["start_date"].empty? 
+      @start_date = Time.now.to_date - 15
+    else
+      @start_date = params["start_date"].to_date 
+    end
+    if params["end_date"].nil? || params["end_date"].empty?
+      @end_date = Time.now.to_date.end_of_day
+    else
+      @end_date = params["end_date"].to_date.end_of_day 
+    end
+
+    if params["type"].nil?  || params["type"].empty? 
+      @start_date = Time.now.to_date - 15
+    elsif params["type"] == 1
+      @type = 1
+      @food_expenditures = FoodExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    elsif params["type"] == 2
+      @type = 2
+      @transport_expenditures = TransportExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    elsif params["type"] == 3
+      @type = 3
+      @extra_expenditures = ExtraExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    elsif params["type"] == 4
+      @type = 4
+      @hotel_expenditures = HotelExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    else
+    end
+
+  end
+
+  def accountant_status_report
+
+    if params["start_date"].nil?  || params["start_date"].empty? 
+      @start_date = Time.now.to_date - 15
+    else
+      @start_date = params["start_date"].to_date 
+    end
+    if params["end_date"].nil? || params["end_date"].empty?
+      @end_date = Time.now.to_date.end_of_day
+    else
+      @end_date = params["end_date"].to_date.end_of_day 
+    end
+
+    if params["user"].nil?  || params["user"].empty?
+      @user = User.user.first
+    else
+      @user = params["user"].to_i
+    end
+    if params["type"].nil?  || params["type"].empty? 
+      
+    elsif params["type"] == "1"
+      @type = 1
+      @food_expenditures = FoodExpenditure.where(:user_id=>@user,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    elsif params["type"] == "2"
+      @type = 2
+      @transport_expenditures = TransportExpenditure.where(:user_id=>@user,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    elsif params["type"] == "3"
+      @type = 3
+      @extra_expenditures = ExtraExpenditure.where(:user_id=>@user,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    elsif params["type"] == "4"
+      @type = 4
+      @hotel_expenditures = HotelExpenditure.where(:user_id=>@user,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
+    else
+    end
+
+  end
     
   private
     

@@ -21,7 +21,6 @@
                 <strong class="control-label">Food Expenditure:</strong>
                 <%= food = current_user.food_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %>
               </p>
-              <% byebug %>
               <p class="form-group">
                 <strong class="control-label">Transport Expenditure:</strong>
                 <%= transport = current_user.transport_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum  %>
