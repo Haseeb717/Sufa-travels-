@@ -38,7 +38,7 @@
         <div class="form-group">
           <label class="col-lg-12 control-label" for="">Room Basis<span class="required">*</span>:</label>
           <div class="col-lg-12">
-          <%= f.select(:room_basis, HotelExpenditure.room_types.keys.to_a,{:prompt => 'Room Basis'}, { :required => true,:class => 'form-control' }) %>  
+          <%= f.select(:room_basis, HotelExpenditure.room_bases.keys.to_a,{:prompt => 'Room Basis'}, { :required => true,:class => 'form-control' }) %>  
           </div>
         </div> 
 
