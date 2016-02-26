@@ -17,6 +17,6 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
   
-  has_attached_file :image, styles: { small: "64x64", med: "100x100",small_large: "200x200>" , large: "250x250" }
+  has_attached_file :image, styles: { small: "64x64", med: "100x100",small_large: "200x200>" , original: "250x250" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 end

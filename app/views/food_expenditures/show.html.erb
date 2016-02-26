@@ -60,7 +60,7 @@
           <% if !@food_expenditure.image.path.nil? %>
             <tr><td><strong>Recipt Pic:</strong></td>
               <td>
-                <%= image_tag @food_expenditure.image.url(:large) %>
+                <%= image_tag @food_expenditure.image.url(:original) %>
               </td>
             </tr>
           <% end %>

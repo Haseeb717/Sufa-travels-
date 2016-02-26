@@ -1,6 +1,6 @@
 class FoodExpenditure < ActiveRecord::Base
 	belongs_to :user
-	has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "250x250" }
+	has_attached_file :image, styles: { small: "64x64", med: "100x100", original: "250x250" }
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	enum food_type: [:Dinner, :Breakfast, :Lunch]
