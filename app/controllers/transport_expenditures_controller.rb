@@ -53,7 +53,7 @@ class TransportExpendituresController < ApplicationController
   # PATCH/PUT /abcs/1.json
   def update
     respond_to do |format|
-      if @transport_expenditure.update(extra_expenditure_params)
+      if @transport_expenditure.update(transport_expenditure_params)
         @transport_expenditure.update_attributes(:edit_able=>false)
         format.html { redirect_to @transport_expenditure, notice: 'TransportExpenditure was successfully updated.' }
         format.json { render :show, status: :ok, location: @transport_expenditure }
