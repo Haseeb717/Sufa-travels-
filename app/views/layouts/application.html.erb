@@ -34,14 +34,14 @@
             <% if user_signed_in? && current_user.user? %>
               <div class="dropdown" style="float:left;">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Add Expenses
+                  Request Expenses
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
                   <li><%= link_to "Food Request", new_food_expenditure_path %></li>
                   <li><%= link_to "Hotel Request", new_hotel_expenditure_path %></li>
                   <li><%= link_to "Transport Request", new_transport_expenditure_path %></li>
-                  <li><%= link_to "Extras Request", new_extra_expenditure_path %></li>
+                  <li><%= link_to "Miscellaneous Request", new_extra_expenditure_path %></li>
                 </ul>
               </div>
               <div class="dropdown" style="float:left;">
@@ -51,10 +51,10 @@
                 </button>
                 <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
                   <li><%= link_to "View Expenses", homes_path %></li>
-                  <li><%= link_to "View Food Expenses", food_expenditures_path %></li>
-                  <li><%= link_to "View Hotel Expenses", hotel_expenditures_path %></li>
-                  <li><%= link_to "View Transport Expenses", transport_expenditures_path %></li>
-                  <li><%= link_to "View Extras Expenses", extra_expenditures_path %></li>
+                  <li><%= link_to "Food Expenses", food_expenditures_path %></li>
+                  <li><%= link_to "Hotel Expenses", hotel_expenditures_path %></li>
+                  <li><%= link_to "Transport Expenses", transport_expenditures_path %></li>
+                  <li><%= link_to "Miscellaneous Expenses", extra_expenditures_path %></li>
                   <li><%= link_to "View Monthly Status", user_report_homes_path %></li>
                   <li><%= link_to "View Daily Status", daily_report_homes_path %></li>
                   <li><%= link_to "View Status", status_report_homes_path %></li>
@@ -76,7 +76,7 @@
                   <li><%= link_to "Daily Report", ceo_daily_report_homes_path %></li>
                   <li><%= link_to "Food Report", f_expenditure_report_homes_path %></li>
                   <li><%= link_to "Hotel Report", h_expenditure_report_homes_path %></li>
-                  <li><%= link_to "Transport Report", t_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Miscellaneous Report", t_expenditure_report_homes_path %></li>
                   <li><%= link_to "Extra Report", e_expenditure_report_homes_path %></li>
                   <li><%= link_to "View All", accountant_status_report_homes_path %></li>
                   

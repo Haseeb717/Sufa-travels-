@@ -209,3 +209,19 @@ input[type=file] {
 .seats{
   display: none;
 }
+.centerForm2{
+  margin:0px  auto !important;
+  padding:25px 0px;
+}
+
+.centerForm2 .control-label{
+  font-size:13px;
+  font-weight:normal;
+  color:#5ca545;
+  text-align:left;
+  margin-bottom:10px;
+}
+.centerForm2 tr td{
+  border: 1px solid;
+  padding: 5px 30px;
+}

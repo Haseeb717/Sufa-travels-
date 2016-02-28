@@ -93,6 +93,6 @@ class HotelExpendituresController < ApplicationController
     end
 
     def hotel_expenditure_params
-      params.require(:hotel_expenditure).permit(:voucher_reference,:guest_name,:room_basis,:supplier_name,:expenditure_type, :checked_in_date, :checked_out_date, :total_days, :charges_per_day, :no_of_rooms, :room_type, :total_amount, :hotel_name, :user_id, :comments,:image)
+      params.require(:hotel_expenditure).permit(:voucher_reference,:guest_name,:room_basis,:supplier_name,:expenditure_type, :checked_in_date, :checked_out_date, :total_days, :charges_per_day, :no_of_rooms, :room_type, :total_amount, :hotel_name, :user_id,:no_of_persons,:adults,:children, :comments,:image)
     end
 end

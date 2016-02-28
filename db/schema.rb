@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211202703) do
+ActiveRecord::Schema.define(version: 20160228180036) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20160211202703) do
     t.datetime "image_updated_at"
     t.boolean  "edit_request",       default: false
     t.boolean  "edit_able",          default: false
+    t.integer  "extra_type"
+    t.string   "other_reason"
   end
 
   add_index "extra_expenditures", ["user_id"], name: "index_extra_expenditures_on_user_id"
@@ -110,6 +112,9 @@ ActiveRecord::Schema.define(version: 20160211202703) do
     t.string   "guest_name"
     t.string   "supplier_name"
     t.integer  "room_basis"
+    t.integer  "no_of_persons"
+    t.integer  "adults"
+    t.integer  "children"
   end
 
   add_index "hotel_expenditures", ["user_id"], name: "index_hotel_expenditures_on_user_id"

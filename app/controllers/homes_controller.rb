@@ -231,16 +231,16 @@ class HomesController < ApplicationController
 
     if params["type"].nil?  || params["type"].empty? 
       @start_date = Time.now.to_date - 15
-    elsif params["type"] == 1
+    elsif params["type"] == "1"
       @type = 1
       @food_expenditures = FoodExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
-    elsif params["type"] == 2
+    elsif params["type"] == "2"
       @type = 2
       @transport_expenditures = TransportExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
-    elsif params["type"] == 3
+    elsif params["type"] == "3"
       @type = 3
       @extra_expenditures = ExtraExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
-    elsif params["type"] == 4
+    elsif params["type"] == "4"
       @type = 4
       @hotel_expenditures = HotelExpenditure.where(:user_id=>current_user.id,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
     else

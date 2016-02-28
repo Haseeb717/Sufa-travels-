@@ -33,12 +33,22 @@
 
             <tr>
               <td>
-                <strong>Supplier Name:</strong>
-                
+                <strong>No of persons:</strong>
+                <%= @hotel_expenditure.no_of_rooms %>
               </td>
               <td>
-                <%= @hotel_expenditure.supplier_name %>
+                <%= @hotel_expenditure.no_of_persons %>
               </td>
+            </tr>
+
+            <tr>
+              <td><strong>Adults:</strong></td>
+              <td><%= @hotel_expenditure.adults %></td>
+            </tr>
+
+            <tr>
+              <td><strong>Childrens:</strong></td>
+              <td><%= @hotel_expenditure.children %></td>
             </tr>
 
             <tr>
@@ -46,35 +56,16 @@
                 <strong>Checked In:</strong>
               </td>
               <td>
-                <%= @hotel_expenditure.checked_out_date.to_date %>
+                <%= @hotel_expenditure.checked_in_date.to_date %>
               </td>
             </tr>
 
             <tr>
               <td>
                 <strong>Checked Out::</strong>
-                
               </td>
               <td>
-                <%= @hotel_expenditure.supplier_name %>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <strong>Total days::</strong>
-              </td>
-              <td>
-                <%= @hotel_expenditure.total_days %>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <strong>Charges per day:</strong>
-              </td>
-              <td>
-                <%= @hotel_expenditure.charges_per_day %>
+                <%= @hotel_expenditure.checked_in_date.to_date %>
               </td>
             </tr>
 
@@ -96,6 +87,24 @@
             <tr>
               <td><strong>Room Basis:</strong></td>
               <td><%= @hotel_expenditure.room_basis %></td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Total days::</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.total_days %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Charges per day:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.charges_per_day %>
+              </td>
             </tr>
 
             <tr>

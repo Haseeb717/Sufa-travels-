@@ -81,7 +81,7 @@ class ExtraExpendituresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def extra_expenditure_params
-      params.require(:extra_expenditure).permit(:payment, :expenditure_type, :user_id, :reason,:image)
+      params.require(:extra_expenditure).permit(:payment, :expenditure_type, :user_id, :reason,:image,:extra_type,:other_reason)
     end
 end
 

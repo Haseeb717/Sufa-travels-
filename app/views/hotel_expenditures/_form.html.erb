@@ -29,6 +29,48 @@
         </div>
 
         <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Hotel Name<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.text_field :hotel_name, autofocus: true, placeholder: "Hotel Name",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Supplier Name<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.text_field :supplier_name, autofocus: true, placeholder: "Supplier Name",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">No of Persons<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.number_field :no_of_persons, autofocus: true, placeholder: "No of Persons",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Adults<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.number_field :adults, autofocus: true, placeholder: "Adults",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Childrens<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.number_field :children, autofocus: true, placeholder: "Childrens",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">No of Rooms<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.number_field :no_of_rooms, autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <label class="col-lg-12 control-label" for="">Room Type<span class="required">*</span>:</label>
           <div class="col-lg-12">
           <%= f.select(:room_type, HotelExpenditure.room_types.keys.to_a,{:prompt => 'Food Type'}, { :required => true,:class => 'form-control' }) %>  
@@ -41,20 +83,6 @@
           <%= f.select(:room_basis, HotelExpenditure.room_bases.keys.to_a,{:prompt => 'Room Basis'}, { :required => true,:class => 'form-control' }) %>  
           </div>
         </div> 
-
-        <div class="form-group">
-          <label class="col-lg-12 control-label" for="">Supplier Name<span class="required">*</span>:</label>
-          <div class="col-lg-12">
-            <%= f.text_field :supplier_name, autofocus: true, placeholder: "Supplier Name",:required => true, class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-lg-12 control-label" for="">Hotel Name<span class="required">*</span>:</label>
-          <div class="col-lg-12">
-            <%= f.text_field :hotel_name, autofocus: true, placeholder: "Hotel Name",:required => true, class: "form-control" %>
-          </div>
-        </div>
 
         <div class="form-group">
           <label class="col-lg-12 control-label" for="">Checked In Date<span class="required">*</span>:</label>
@@ -77,12 +105,6 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="col-lg-12 control-label" for="">No of Rooms<span class="required">*</span>:</label>
-          <div class="col-lg-12">
-            <%= f.number_field :no_of_rooms, autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
-          </div>
-        </div>
 
         <div class="form-group">
           <label class="col-lg-12 control-label" for="">Comments<span class="required">*</span>:</label>
