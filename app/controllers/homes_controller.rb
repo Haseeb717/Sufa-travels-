@@ -54,15 +54,15 @@ class HomesController < ApplicationController
       else
         balance = @user.balance_request
       end
-      balance = balance + params["amount"].to_i
-      @user.update_attributes(:balance_request=>balance)
+      balance = params["amount"].to_i
+      UserBalance.create(:amount=>balance,:user_id=>@user.id)
       redirect_to list_all_users_homes_path 
     else
     end
   end
 
   def super_admin_dashboard
-    @users = User.where.not(:balance_request=>nil)
+    @users = UserBalance.where(:admin_approved=>false)
   end
 
   def user_report
@@ -114,11 +114,22 @@ class HomesController < ApplicationController
   end
 
   def approve_balance_super_admin
-    @user = User.find_by_id(params["id"])
-    balance = @user.total_amount + @user.balance_request
-    current_balance = @user.current_amount + @user.balance_request
-    UserBalance.create(:amount=>@user.balance_request,:user_id=>@user.id) 
-    @user.update_attributes(:total_amount=>balance,:current_amount=>current_balance,:balance_request=>nil)
+    @userbalance = UserBalance.find_by_id(params["id"])
+    @userbalance.update_attributes(:admin_approved=>true)
+    
+    redirect_to super_admin_dashboard_homes_path
+  end
+
+  def user_approval_balance_list
+    @userbalances = current_user.user_balances.where(:admin_approved=>true,:recieved=>false)
+  end
+
+  def user_approve_balance_recieved
+    @userbalance = UserBalance.find_by_id(params["id"])
+    balance = @userbalance.user.total_amount + @userbalance.amount
+    current_balance = @userbalance.user.current_amount + @userbalance.amount
+    @userbalance.update_attributes(:recieved=>true) 
+    @userbalance.user.update_attributes(:total_amount=>balance,:current_amount=>current_balance,:balance_request=>nil)
      
     redirect_to super_admin_dashboard_homes_path
   end

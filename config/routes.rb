@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       get 'show_user'
       get 'approve_balance_super_admin'
+      get 'user_approve_balance_recieved'
 
     end
     collection do
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
       get 't_expenditure_report'
       get 'status_report'
       get 'accountant_status_report'
+      get 'user_approval_balance_list'
     end
   end
   

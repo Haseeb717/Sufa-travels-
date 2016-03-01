@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228180036) do
+ActiveRecord::Schema.define(version: 20160301204159) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -146,9 +146,11 @@ ActiveRecord::Schema.define(version: 20160228180036) do
   create_table "user_balances", force: :cascade do |t|
     t.float    "amount"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "comments"
+    t.boolean  "recieved",       default: false
+    t.boolean  "admin_approved", default: false
   end
 
   add_index "user_balances", ["user_id"], name: "index_user_balances_on_user_id"
