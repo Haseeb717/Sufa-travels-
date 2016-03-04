@@ -96,6 +96,12 @@ class HomesController < ApplicationController
   def daily_report
     @start_date = Time.now.to_date
     @end_date = Time.now.to_date.end_of_day
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name",:layout => "/layouts/pdf.html.erb"
+      end
+    end 
   end
 
   def ceo_daily_report
