@@ -270,6 +270,13 @@ class HomesController < ApplicationController
     else
     end
 
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name",:layout => "/layouts/pdf.html.erb"
+      end
+    end 
+
   end
 
   def accountant_status_report
