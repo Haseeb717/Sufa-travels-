@@ -8,7 +8,7 @@ class HomesController < ApplicationController
   end
 
   def edit_requests
-  	@extra_expenditures = ExtraExpenditure.where(:edit_request=>true)
+    @extra_expenditures = ExtraExpenditure.where(:edit_request=>true)
     @food_expenditures = FoodExpenditure.where(:edit_request=>true)  
     @hotel_expenditures = HotelExpenditure.where(:edit_request=>true) 
     @transport_expenditures = TransportExpenditure.where(:edit_request=>true) 
@@ -145,6 +145,13 @@ class HomesController < ApplicationController
     end
     @start_date = start_d
     @balances = UserBalance.where("created_at >= ? and created_at <= ?",@start_date,@end_date.end_of_day)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name",:layout => "/layouts/pdf.html.erb"
+      end
+    end
   end
 
   def h_expenditure_report
@@ -293,7 +300,12 @@ class HomesController < ApplicationController
       @hotel_expenditures = HotelExpenditure.where(:user_id=>@user,:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13)
     else
     end
-
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name",:layout => "/layouts/pdf.html.erb"
+      end
+    end
   end
     
   private

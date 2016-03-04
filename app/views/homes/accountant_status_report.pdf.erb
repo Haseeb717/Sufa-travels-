@@ -3,31 +3,7 @@
     <div class="col-lg-12" style="padding-left:0px;">
       <div class="container">
         <h1>Food Expenditures Report</h1>
-        <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
-          <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
-            <%= form_tag(accountant_status_report_homes_path, :method => :get) do %>
-              <ul>
-
-                <li>
-                  <% u = User.user.all %>
-                  <%= select_tag(:user, options_from_collection_for_select(u, "id", "name",@user), prompt: "Select Employee",class: 'form-control select-option product_like_sort campaign_sort') %>
-                </li>
-
-                <li>
-                  <%= select_tag(:type, options_for_select([['All', 0],['Food', 1], ['Transport', 2], ['Extra', 3], ['Hotel', 4]],@type),class: 'form-control select-option product_like_sort campaign_sort') %> 
-                </li>
-                
-                <li>
-                  <%= text_field_tag 'start_date', nil, placeholder: 'Start Date...',class: 'form-control select-option product_like_sort start_date',:value=>@start_date.to_date %>
-                </li>
-                <li>
-                  <%= text_field_tag 'end_date', nil, placeholder: 'End Date...',class: 'form-control select-option product_like_sort end_date',:value=>@end_date.to_date %>
-                </li>
-                <li><%= submit_tag "Filter" , class: "btn sort_btn" %></li>
-              </ul>
-            <% end %>
-          </div>
-        </div>
+        
         <% if !@food_expenditures.nil? %>
           <div class="panel panel-default">
             <div class="panel-body">
@@ -286,11 +262,9 @@
             </div>
           </div>
         <% end %>
-        <%= link_to 'Download Report', accountant_status_report_homes_path(format: 'pdf') %>
+
       </div>
-      
     </div>
-    
     
   </div>
 </div>

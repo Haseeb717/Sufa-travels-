@@ -30,6 +30,8 @@ gem 'will_paginate'
 gem 'chartkick', '~> 1.2.4'
 gem 'groupdate', '~> 2.1.1'
 gem 'active_median', '~> 0.1.0'
+gem 'wicked_pdf', '~> 0.11.0'
+gem 'wkhtmltopdf-binary'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use jquery as the JavaScript library
