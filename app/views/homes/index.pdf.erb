@@ -57,7 +57,7 @@
                   <th style="color:#5ca545">Food Type</th>
                   <th style="color:#5ca545">No of Persons</th>
                   <th style="color:#5ca545">Payment</th>
-                  <th></th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -68,15 +68,7 @@
                     <td><%= ad.food_type %></td>
                     <td><%= ad.no_of_persons %></td>
                     <td><%= ad.payment %></td>              
-                    <td style="text-align:right;">                
-                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
-                      <% if ad.edit_able? %>
-                        <%= link_to 'Edit', edit_food_expenditure_path(ad),:class=>"list-product-show" %>
-                      <% else %>
-                        <%= link_to 'Edit Request', edit_request_food_expenditure_path(ad),:class=>"list-product-edit" %>
-                      <% end %>
-                      
-                    </td>
+                    
                   </tr>
                 <% end %>
               </tbody>
@@ -101,7 +93,7 @@
                   <th style="color:#5ca545">Room Type</th>
                   <th style="color:#5ca545">Charges Per Day</th>
                   <th style="color:#5ca545">Total Amount</th>
-                  <th></th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -113,15 +105,7 @@
                     <td><%= ad.room_type %></td>
                     <td><%= ad.charges_per_day %></td>
                     <td><%= ad.total_days %></td>              
-                    <td style="text-align:right;">                
-                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
-                      <% if ad.edit_able? %>
-                        <%= link_to 'Edit', edit_hotel_expenditure_path(ad),:class=>"list-product-show" %>
-                      <% else %>
-                        <%= link_to 'Edit Request', edit_request_hotel_expenditure_path(ad),:class=>"list-product-edit" %>
-                      <% end %>
-                      
-                    </td>
+                    
                   </tr>
                 <% end %>
               </tbody>
@@ -146,7 +130,7 @@
                   <th style="color:#5ca545">Arrival place</th>
                   
                   <th style="color:#5ca545">Payment</th>
-                  <th></th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -157,15 +141,7 @@
                     <td><%= ad.arrival_place %></td>
                     <td><%= ad.departure_place %></td>
                     <td><%= ad.payment %></td>               
-                    <td style="text-align:right;">                
-                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
-                      <% if ad.edit_able? %>
-                        <%= link_to 'Edit', edit_transport_expenditure_path(ad),:class=>"list-product-show" %>
-                      <% else %>
-                        <%= link_to 'Edit Request', edit_request_transport_expenditure_path(ad),:class=>"list-product-edit" %>
-                      <% end %>
-                      
-                    </td>
+                    
                   </tr>
                 <% end %>
               </tbody>
@@ -187,7 +163,7 @@
                   <th style="color:#5ca545">Expenditure Type</th>
                   <th style="color:#5ca545">Payment</th>
                   <th style="color:#5ca545">Reason</th>
-                  <th></th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -196,15 +172,7 @@
                     <td><%= ad.expenditure_type %></td>
                     <td><%= ad.payment %></td>
                     <td><%= ad.reason %></td>              
-                    <td style="text-align:right;">                
-                      <%= link_to 'Show', ad,:class=>"list-product-show" %>
-                      <% if ad.edit_able? %>
-                        <%= link_to 'Edit', edit_extra_expenditure_path(ad),:class=>"list-product-show" %>
-                      <% else %>
-                        <%= link_to 'Edit Request', edit_request_extra_expenditure_path(ad),:class=>"list-product-edit" %>
-                      <% end %>
-                      
-                    </td>
+                   
                   </tr>
                 <% end %>
               </tbody>
@@ -212,9 +180,7 @@
           </div>
         <% else %>
         <% end %>
-
       </div>
-      <div class="container"><%= link_to "View Expenses", homes_path(format: 'pdf') %></div>      
     </div>
   </div>
 </div>

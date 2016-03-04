@@ -4,7 +4,13 @@ class HomesController < ApplicationController
     @extra_expenditures = current_user.extra_expenditures.all 
     @food_expenditures = current_user.food_expenditures.all  
     @hotel_expenditures = current_user.hotel_expenditures.all 
-    @transport_expenditures = current_user.transport_expenditures.all 
+    @transport_expenditures = current_user.transport_expenditures.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name",:layout => "/layouts/pdf.html.erb"
+      end
+    end 
   end
 
   def edit_requests
