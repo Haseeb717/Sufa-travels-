@@ -12,9 +12,9 @@
                     <tr>
                       <th style="color:#5ca545">Name</th>
                       <th style="color:#5ca545">Email</th>
-                      <th style="color:#5ca545">Total Balance</th>
-                      <th style="color:#5ca545">Current Balance</th>
+                      <th style="color:#5ca545">Total Amount</th>
                       <th style="color:#5ca545">Total Expenditure</th>
+                      <th style="color:#5ca545">Balance</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -24,8 +24,9 @@
                         <td><%= user.name %></td>
                         <td><%= user.email %></td>
                         <td><%= user.total_amount %></td>
-                        <td><%= user.current_amount %></td>
                         <td><%= user.total_expenditures_amount %></td>
+                        <td><%= user.current_amount %></td>
+                        
                         <td style="text-align:right;">                
                           <%= link_to 'View', show_user_home_path(user),:class=>"list-product-show" %>
                           <%= link_to 'Add Balance', add_balance_homes_path(:user=>user),:class=>"list-product-edit" %>

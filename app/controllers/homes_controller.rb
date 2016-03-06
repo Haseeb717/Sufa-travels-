@@ -143,7 +143,7 @@ class HomesController < ApplicationController
     @userbalance.update_attributes(:recieved=>true) 
     @userbalance.user.update_attributes(:total_amount=>balance,:current_amount=>current_balance,:balance_request=>nil)
      
-    redirect_to super_admin_dashboard_homes_path
+    redirect_to daily_report_homes_path
   end
 
   def accountant_report

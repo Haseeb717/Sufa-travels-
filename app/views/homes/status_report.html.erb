@@ -87,8 +87,8 @@
                       <th style="color:#5ca545">Ref#</th>
                       <th style="color:#5ca545">Transport type</th>
                       <th style="color:#5ca545">No of seats</th>
-                      <th style="color:#5ca545">Arrival place</th>
-                      <th style="color:#5ca545">Departure place</th>
+                      <th style="color:#5ca545">From</th>
+                      <th style="color:#5ca545">To</th>
                       <th style="color:#5ca545">Payment</th>
                       <th colspan="3"></th>
                     </tr>
@@ -213,7 +213,8 @@
         <% else %>
           <div class="panel panel-default">
             <div class="panel-body">
-                <div class="col-lg-11">
+                <% u_cre = 0 %>
+                <div class="col-lg-12">
                   <table class="table table-striped table-bordered listing-products-table">
                     <thead>
                       <tr>
@@ -259,7 +260,7 @@
 
                         <tr>
                           <td><%= day %></td>
-                          <td><%= u_credit %></td>
+                          <td><%= i_cre = u_credit %></td>
                           <td><%= f_expenses %></td>
                           <td><%= t_expenses %></td>
                           <td><%= e_expenses %></td>
@@ -277,6 +278,13 @@
                       </tr>
                     </tbody>
                   </table>
+                </div>
+                <div class="col-lg-12" style="text-align:right">
+                  Total Expenditures: <%= u_cre %>
+                </div>
+                <div class="col-lg-12" style="text-align:right">
+                  
+                  Balance: <%= current_user.current_amount %>
                 </div>
             </div>
           </div>

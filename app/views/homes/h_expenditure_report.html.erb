@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-lg-12" style="padding-left:0px;">
       <div class="container">
-        <h1>Hotel Expenditures Report</h1>
+        <h1>Hotel Expenses Report</h1>
         <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
           <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
-            <%= form_tag(food_expenditures_path, :method => :get) do %>
+            <%= form_tag(h_expenditure_report_homes_path, :method => :get) do %>
               <ul>
                 <li>
                   <% u = User.user.all %>
@@ -31,9 +31,10 @@
                   <tr>
                     <th style="color:#5ca545">Employee</th>
                     <th style="color:#5ca545">Date</th>
+                    <th style="color:#5ca545">Ref#</th>
                     <th style="color:#5ca545">Supplier</th>
                     <th style="color:#5ca545">Guest</th>
-                    <th style="color:#5ca545">Ref#</th>
+                    
                     <th style="color:#5ca545">Hotel name</th>
                     <th style="color:#5ca545">Checked in</th>
                     <th style="color:#5ca545">Checked out</th>
@@ -52,9 +53,10 @@
                     <tr>
                       <td><%= link_to hotel_expenditure.user.name, show_user_home_path(hotel_expenditure.user) %></td>
                       <td><%= hotel_expenditure.created_at.to_date %></td>
+                      <td><%= hotel_expenditure.voucher_reference %></td>
                       <td><%= hotel_expenditure.supplier_name %></td>
                       <td><%= hotel_expenditure.guest_name %></td>
-                      <td><%= hotel_expenditure.voucher_reference %></td>
+                      
                       <td><%= hotel_expenditure.hotel_name %></td>
                       <td><%= hotel_expenditure.checked_in_date.to_date %></td>
                       <td><%= hotel_expenditure.checked_out_date.to_date %></td>

@@ -14,7 +14,7 @@
                       <th style="color:#5ca545">Email</th>
                       <th style="color:#5ca545">Total Balance</th>
                       <th style="color:#5ca545">Current Balance</th>
-                      <th style="color:#5ca545">Total Expenditure</th>
+                      <th style="color:#5ca545">Total Expenses</th>
                       <th style="color:#5ca545">Balance Request</th>
                       <th></th>
                     </tr>
@@ -23,9 +23,9 @@
                     <% @users.each do |user| %>
                       <tr>
                         <td><%= user.user.name %></td>
-                        <td><%= user.user. %></td>
+                        <td><%= user.user.email %></td>
                         <td><%= user.user.total_amount %></td>
-                        <td><%= user.current_amount %></td>
+                        <td><%= user.user.current_amount %></td>
                         <td><%= user.user.total_expenditures_amount %></td>
                         <td><%= user.amount %></td>
                         <td style="text-align:right;">                

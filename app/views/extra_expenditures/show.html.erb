@@ -8,13 +8,12 @@
 						  <td><strong>Payment:</strong></td>
 						  <td>Rs.<%= @extra_expenditure.payment %></td>
 						</tr>
-						<tr>
-						  <td><strong>Type:</strong></td>
-						  <td><%= @extra_expenditure.extra_type %></td>
-						</tr>
+						
 						<tr>
 							<% if !@extra_expenditure.other_reason.nil? %>
+								<td>Specific Reason</td>
 								<td><%= @extra_expenditure.other_reason %></td>
+
 							<% end %>
 						</tr>
 						<tr>

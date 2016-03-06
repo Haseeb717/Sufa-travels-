@@ -11,33 +11,33 @@
                 <td><strong class="control-label">Name:</strong></td>
                 <td><%= current_user.name %></td>
               </tr>
-
-              <tr>
-                <td><strong class="control-label">Remaining Balance:</strong></td>
-                <td><%= current_user.current_amount %></td>
-              </tr>
               
               <tr>
-                <td><strong class="control-label">Food Expenditure:</strong></td>
+                <td><strong class="control-label">Food Expenses:</strong></td>
                 <td><%= food = current_user.food_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
               </td>
               <tr>
-                <td><strong class="control-label">Transport Expenditure:</strong></td>
+                <td><strong class="control-label">Transport Expenses:</strong></td>
                 <td><%= transport = current_user.transport_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum  %></td>
               </tr>
               
               <tr>
-                <td><strong class="control-label">Hotel Expenditure:</strong></td>
+                <td><strong class="control-label">Hotel Expenses:</strong></td>
                 <td><%= hotel = current_user.hotel_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:total_amount).sum %></td>
               </tr>
               <tr>
-                <td><strong class="control-label">Miscellaneous Expenditure:</strong></td>
+                <td><strong class="control-label">Miscellaneous Expenses:</strong></td>
                 <td><%= extra = current_user.extra_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
               </tr>
 
               <tr>
-                <td><strong class="control-label">Total Expenditures:</strong></td>
+                <td><strong class="control-label">Total Expenses:</strong></td>
                 <td><%= food+hotel+extra+transport %></td>
+              </tr>
+
+              <tr>
+                <td><strong class="control-label">Balance:</strong></td>
+                <td><%= current_user.current_amount %></td>
               </tr>
               </table>
             </div>
@@ -49,7 +49,7 @@
 
         </div>
       </div>
-      <div class="container"><%= link_to 'Download Report', daily_report_homes_path(format: 'pdf') %></div>
+      
     </div>
   </div>
 </div>

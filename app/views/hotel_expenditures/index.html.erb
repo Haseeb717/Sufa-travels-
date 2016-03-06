@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12" style="padding-left:0px;">
       <div class="container">
-        <h1>Hotel Expenditures Report</h1>
+        <h1>Hotel Expenses Report</h1>
         <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
           <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
             <%= form_tag(hotel_expenditures_path, :method => :get) do %>
@@ -31,11 +31,13 @@
                     <th style="color:#5ca545">Hotel name</th>
                     <th style="color:#5ca545">Checked in</th>
                     <th style="color:#5ca545">Checked out</th>
-                    <th style="color:#5ca545">T.Days</th>
+                    <th style="color:#5ca545">T.Nights</th>
+                    <th style="color:#5ca545">Adults</th>
+                    <th style="color:#5ca545">Childs</th>
                     <th style="color:#5ca545">Rate P.Day</th>
                     <th style="color:#5ca545">Room</th>
                     <th style="color:#5ca545">Room type</th>
-                    <th style="color:#5ca545">T.mount</th>
+                    <th style="color:#5ca545">T.amount</th>
                     
                     <th colspan="2"></th>
                   </tr>
@@ -51,6 +53,8 @@
                       <td><%= hotel_expenditure.checked_in_date.to_date %></td>
                       <td><%= hotel_expenditure.checked_out_date.to_date %></td>
                       <td><%= hotel_expenditure.total_days %></td>
+                      <td><%= hotel_expenditure.adults %></td>
+                      <td><%= hotel_expenditure.children %></td>
                       <td><%= hotel_expenditure.charges_per_day %></td>
                       <td><%= hotel_expenditure.no_of_rooms %></td>
                       <td><%= hotel_expenditure.room_type %></td>

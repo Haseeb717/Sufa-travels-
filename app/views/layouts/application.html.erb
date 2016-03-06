@@ -73,15 +73,22 @@
                   <li><%= link_to "List of all Users", list_all_users_homes_path %></li>
                   <li><%= link_to "Edit Requests", edit_requests_homes_path %></li>
                   <li><%= link_to "Add Balance", add_balance_homes_path %></li>
+                  
+                  <li><%= link_to "View All", accountant_status_report_homes_path %></li>
+                </ul>
+              </div>
+              <div class="dropdown" style="float:left;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Reports
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
                   <li><%= link_to "Monthly Report", ceo_monthly_report_homes_path %></li>
                   <li><%= link_to "Daily Report", ceo_daily_report_homes_path %></li>
                   <li><%= link_to "Food Report", f_expenditure_report_homes_path %></li>
                   <li><%= link_to "Hotel Report", h_expenditure_report_homes_path %></li>
-                  <li><%= link_to "Miscellaneous Report", t_expenditure_report_homes_path %></li>
-                  <li><%= link_to "Extra Report", e_expenditure_report_homes_path %></li>
-                  <li><%= link_to "View All", accountant_status_report_homes_path %></li>
-                  
-                  
+                  <li><%= link_to "Transport Report", t_expenditure_report_homes_path %></li>
+                  <li><%= link_to "Miscellaneous Report", e_expenditure_report_homes_path %></li>
                 </ul>
               </div>
             <% elsif user_signed_in? && current_user.super_admin? %>
