@@ -32,7 +32,7 @@
                     <th style="color:#5ca545">No of persons</th>
                     <th style="color:#5ca545">On Request</th>
                     <th style="color:#5ca545">Payment</th>
-                   
+                    <th style="color:#5ca545">Date</th>
                     <th colspan="3"></th>
                   </tr>
                 </thead>
@@ -47,7 +47,7 @@
                       <td><%= food_expenditure.no_of_persons %></td>            
                       <td><%= food_expenditure.on_request_of %></td>
                       <td><%= food_expenditure.payment %></td>
-                      
+                      <td><%= food_expenditure.date.to_s %></td>
                       <td style="text-align:right;"> 
                         <%= link_to 'Show', food_expenditure,:class=>"list-product-show" %>
                         <% if food_expenditure.edit_able? %>

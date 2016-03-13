@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301204159) do
+ActiveRecord::Schema.define(version: 20160313174332) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160301204159) do
     t.string   "voucher_reference"
     t.string   "guest_name"
     t.string   "on_request_of"
+    t.string   "date"
   end
 
   add_index "food_expenditures", ["user_id"], name: "index_food_expenditures_on_user_id"
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 20160301204159) do
     t.integer  "no_of_persons"
     t.integer  "adults"
     t.integer  "children"
+    t.integer  "infant"
   end
 
   add_index "hotel_expenditures", ["user_id"], name: "index_hotel_expenditures_on_user_id"
@@ -139,6 +141,7 @@ ActiveRecord::Schema.define(version: 20160301204159) do
     t.string   "voucher_reference"
     t.string   "guest_name"
     t.string   "supplier_name"
+    t.string   "date"
   end
 
   add_index "transport_expenditures", ["user_id"], name: "index_transport_expenditures_on_user_id"

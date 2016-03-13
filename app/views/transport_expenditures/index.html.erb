@@ -33,6 +33,7 @@
                     <th style="color:#5ca545">From</th>
                     <th style="color:#5ca545">To</th>
                     <th style="color:#5ca545">Payment</th>
+                    <th style="color:#5ca545">Date</th>
                     <th colspan="3"></th>
                   </tr>
                 </thead>
@@ -49,6 +50,7 @@
                       <td><%= transport_expenditure.arrival_place %></td>
                       <td><%= transport_expenditure.departure_place %></td>
                       <td><%= transport_expenditure.payment %></td>
+                      <td><%= transport_expenditure.date.to_s %></td>
                       <td style="text-align:right;"> 
                         <%= link_to 'Show', transport_expenditure,:class=>"list-product-show" %>
                         <% if transport_expenditure.edit_able? %>

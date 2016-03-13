@@ -102,13 +102,13 @@ input[type=file] {
   padding: 8px 13px;
   border-radius: 5px;
   line-height: 30px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .listing-products .list-product-show{
   background-color: #449d44;
 }
 .listing-products .list-product-edit{
-  background-color: #286090;
+  background-color: cadetblue;
   text-decoration: none;
 }
 .listing-products .list-product-delete{

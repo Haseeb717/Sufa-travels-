@@ -6,7 +6,7 @@ class HotelExpendituresController < ApplicationController
   # GET /abcs.json
   def index
     if params["start_date"].nil?  || params["start_date"].empty? 
-      @start_date = Time.now.to_date - 15
+      @start_date = current_user.created_at
     else
       @start_date = params["start_date"].to_date 
     end
@@ -93,6 +93,6 @@ class HotelExpendituresController < ApplicationController
     end
 
     def hotel_expenditure_params
-      params.require(:hotel_expenditure).permit(:voucher_reference,:guest_name,:room_basis,:supplier_name,:expenditure_type, :checked_in_date, :checked_out_date, :total_days, :charges_per_day, :no_of_rooms, :room_type, :total_amount, :hotel_name, :user_id,:no_of_persons,:adults,:children, :comments,:image)
+      params.require(:hotel_expenditure).permit(:voucher_reference,:guest_name,:room_basis,:supplier_name,:expenditure_type, :checked_in_date, :checked_out_date, :total_days, :charges_per_day, :no_of_rooms, :room_type, :total_amount, :hotel_name, :user_id,:no_of_persons,:adults,:children, :comments,:image,:infant)
     end
 end

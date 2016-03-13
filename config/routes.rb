@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       get 'status_report'
       get 'accountant_status_report'
       get 'user_approval_balance_list'
+      get 'ceo_view_all'
     end
   end
   

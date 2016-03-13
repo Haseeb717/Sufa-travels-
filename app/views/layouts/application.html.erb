@@ -89,6 +89,7 @@
                   <li><%= link_to "Hotel Report", h_expenditure_report_homes_path %></li>
                   <li><%= link_to "Transport Report", t_expenditure_report_homes_path %></li>
                   <li><%= link_to "Miscellaneous Report", e_expenditure_report_homes_path %></li>
+                  <li><%= link_to "All Reports", ceo_view_all_homes_path %></li>
                 </ul>
               </div>
             <% elsif user_signed_in? && current_user.super_admin? %>
@@ -106,6 +107,7 @@
                   <li><%= link_to "Transport Report", t_expenditure_report_homes_path %></li>
                   <li><%= link_to "Miscellaneous Report", e_expenditure_report_homes_path %></li>
                   <li><%= link_to "View All", accountant_status_report_homes_path %></li>
+                  <li><%= link_to "All Reports", ceo_view_all_homes_path %></li>
 
                 </ul>
               </div>
@@ -118,6 +120,7 @@
                 <ul class="dropdown-menu infoNav" aria-labelledby="dropdownMenu1" style="width:191px;">
                   <li><%= link_to "Monthly Report", ceo_monthly_report_homes_path %></li>
                   <li><%= link_to "Daily Report", ceo_daily_report_homes_path %></li>
+                  <li><%= link_to "All Reports", ceo_view_all_homes_path %></li>
                 </ul>
               </div>
             <% end %>

@@ -168,7 +168,7 @@ class HomesController < ApplicationController
 
   def h_expenditure_report
     if params["start_date"].nil?  || params["start_date"].empty? 
-      @start_date = Time.now.to_date - 15
+      @start_date = Time.now.to_date - 45
     else
       @start_date = params["start_date"].to_date 
     end
@@ -188,7 +188,7 @@ class HomesController < ApplicationController
 
   def t_expenditure_report
     if params["start_date"].nil?  || params["start_date"].empty? 
-      @start_date = Time.now.to_date - 15
+      @start_date = Time.now.to_date - 45
     else
       @start_date = params["start_date"].to_date 
     end
@@ -208,7 +208,7 @@ class HomesController < ApplicationController
 
   def f_expenditure_report
     if params["start_date"].nil?  || params["start_date"].empty? 
-      @start_date = Time.now.to_date - 15
+      @start_date = Time.now.to_date - 45
     else
       @start_date = params["start_date"].to_date 
     end
@@ -228,7 +228,7 @@ class HomesController < ApplicationController
 
   def e_expenditure_report
     if params["start_date"].nil?  || params["start_date"].empty? 
-      @start_date = Time.now.to_date - 15
+      @start_date = Time.now.to_date - 45
     else
       @start_date = params["start_date"].to_date 
     end
@@ -243,6 +243,25 @@ class HomesController < ApplicationController
     else
       @user = params["user"]
       @extra_expenditures = ExtraExpenditure.where(:user_id=>params["user"],:created_at=>@start_date..@end_date).paginate(:page => params[:page], :per_page => 13) 
+    end
+  end
+
+  def ceo_view_all
+    if params["user"].nil?  || params["user"].empty? 
+      @user = User.user.first
+      @user_select = @user.id
+      @extra_expenditures = @user.extra_expenditures.all 
+      @food_expenditures = @user.food_expenditures.all  
+      @hotel_expenditures = @user.hotel_expenditures.all 
+      @transport_expenditures = @user.transport_expenditures.all
+    else
+      @user = User.find(params["user"])
+      @user_select = @user.id
+      @extra_expenditures = @user.extra_expenditures.all 
+      @food_expenditures = @user.food_expenditures.all  
+      @hotel_expenditures = @user.hotel_expenditures.all 
+      @transport_expenditures = @user.transport_expenditures.all
+
     end
   end
 

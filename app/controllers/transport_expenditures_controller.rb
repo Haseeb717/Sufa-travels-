@@ -5,7 +5,7 @@ class TransportExpendituresController < ApplicationController
   # GET /abcs.json
   def index
     if params["start_date"].nil?  || params["start_date"].empty? 
-      @start_date = Time.now.to_date - 15
+      @start_date = current_user.created_at
     else
       @start_date = params["start_date"].to_date 
     end
@@ -92,6 +92,6 @@ class TransportExpendituresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transport_expenditure_params
-      params.require(:transport_expenditure).permit(:voucher_reference,:guest_name,:supplier_name,:transport_type, :expenditure_type, :no_of_seats, :arrival_time, :departure_time, :arrival_place, :departure_place, :payment, :user_id,:image)
+      params.require(:transport_expenditure).permit(:voucher_reference,:guest_name,:supplier_name,:transport_type, :expenditure_type, :no_of_seats, :arrival_time, :departure_time, :arrival_place, :departure_place, :payment, :user_id,:image,:date)
     end
 end

@@ -29,16 +29,16 @@
                     <th style="color:#5ca545">Guest</th>
                     <th style="color:#5ca545">Ref#</th>
                     <th style="color:#5ca545">Hotel name</th>
-                    <th style="color:#5ca545">Checked in</th>
-                    <th style="color:#5ca545">Checked out</th>
+                    <th style="color:#5ca545">In</th>
+                    <th style="color:#5ca545">Out</th>
                     <th style="color:#5ca545">T.Nights</th>
                     <th style="color:#5ca545">Adults</th>
                     <th style="color:#5ca545">Childs</th>
-                    <th style="color:#5ca545">Rate P.Day</th>
+                    <th style="color:#5ca545">Infants</th>
                     <th style="color:#5ca545">Room</th>
                     <th style="color:#5ca545">Room type</th>
+                    <th style="color:#5ca545">Rate P.Day</th>
                     <th style="color:#5ca545">T.amount</th>
-                    
                     <th colspan="2"></th>
                   </tr>
                 </thead>
@@ -55,13 +55,13 @@
                       <td><%= hotel_expenditure.total_days %></td>
                       <td><%= hotel_expenditure.adults %></td>
                       <td><%= hotel_expenditure.children %></td>
-                      <td><%= hotel_expenditure.charges_per_day %></td>
+                      <td><%= hotel_expenditure.infant %></td>
                       <td><%= hotel_expenditure.no_of_rooms %></td>
                       <td><%= hotel_expenditure.room_type %></td>
 
                       
                       
-                      
+                      <td><%= hotel_expenditure.charges_per_day %></td>
                       <td><%= hotel_expenditure.total_amount %></td>
                       
                       <td style="text-align:right;"> 
@@ -69,7 +69,7 @@
                         <% if hotel_expenditure.edit_able? %>
                           <%= link_to 'Edit', edit_hotel_expenditure_path(hotel_expenditure),:class=>"list-product-show" %>
                         <% else %>
-                          <%= link_to 'Edit Request', edit_request_hotel_expenditure_path(hotel_expenditure),:class=>"list-product-edit" %>
+                          <%= link_to 'Edit', edit_request_hotel_expenditure_path(hotel_expenditure),:class=>"list-product-edit" %>
                         <% end %>
                         
                       </td>              
