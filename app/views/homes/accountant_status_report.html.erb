@@ -223,11 +223,12 @@
                     <thead>
                       <tr>
                         <th style="color:#5ca545">Date</th>
-                        <th style="color:#5ca545">Balance Added</th>
-                        <th style="color:#5ca545">FoodExpenditure</th>
                         <th style="color:#5ca545">TransportExpenditure</th>
-                        <th style="color:#5ca545">MiscellaneousExpenditure</th>
+                        <th style="color:#5ca545">FoodExpenditure</th>
                         <th style="color:#5ca545">HotelExpenditure</th>
+                        <th style="color:#5ca545">MiscellaneousExpenditure</th>
+                        <th style="color:#5ca545">Balance Added</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -264,21 +265,27 @@
 
                         <tr>
                           <td><%= day %></td>
-                          <td><%= u_credit %></td>
-                          <td><%= f_expenses %></td>
                           <td><%= t_expenses %></td>
-                          <td><%= e_expenses %></td>
+                          <td><%= f_expenses %></td>
+                          
+                          
                           <td><%= h_expenses %></td>
+                          <td><%= e_expenses %></td>
+                          <td><%= u_credit %></td>
+                          
                         </tr>
 
                       <% end %>
                       <tr>
                         <td>Total</td>
-                        <td><%= UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:amount).sum %></td>
-                        <td><%= FoodExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:payment).sum %></td>
                         <td><%= TransportExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:payment).sum %></td>
-                        <td><%= ExtraExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:payment).sum %></td>
+                        
+                        <td><%= FoodExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:payment).sum %></td>
                         <td><%= HotelExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:total_amount).sum %></td>
+                        <td><%= ExtraExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:payment).sum %></td>
+                        
+                        <td><%= UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,@start_date,@end_date.end_of_day).map(&:amount).sum %></td>
+                        
                       </tr>
                     </tbody>
                   </table>
