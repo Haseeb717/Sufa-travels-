@@ -226,3 +226,6 @@ input[type=file] {
   border: 1px solid;
   padding: 5px 30px;
 }
+.no_of_beds{
+  display: none;
+}

@@ -5,7 +5,7 @@ class ExtraExpendituresController < ApplicationController
   # GET /abcs.json
   def index
     if params["start_date"].nil?  || params["start_date"].empty? 
-      @start_date = Tcurrent_user.created_at
+      @start_date = current_user.created_at
     else
       @start_date = params["start_date"].to_date 
     end

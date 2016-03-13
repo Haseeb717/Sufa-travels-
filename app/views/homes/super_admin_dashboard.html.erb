@@ -12,10 +12,11 @@
                     <tr>
                       <th style="color:#5ca545">Name</th>
                       <th style="color:#5ca545">Email</th>
-                      <th style="color:#5ca545">Total Balance</th>
-                      <th style="color:#5ca545">Current Balance</th>
-                      <th style="color:#5ca545">Total Expenses</th>
-                      <th style="color:#5ca545">Balance Request</th>
+                      <th style="color:#5ca545">Total Amount</th>
+                      <th style="color:#5ca545">Expenses</th>
+                      <th style="color:#5ca545">Balance</th>
+                      
+                      <th style="color:#5ca545">Comments</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -25,9 +26,9 @@
                         <td><%= user.user.name %></td>
                         <td><%= user.user.email %></td>
                         <td><%= user.user.total_amount %></td>
-                        <td><%= user.user.current_amount %></td>
                         <td><%= user.user.total_expenditures_amount %></td>
-                        <td><%= user.amount %></td>
+                        <td><%= user.user.current_amount %></td>
+                        <td><%= user.comments %></td>
                         <td style="text-align:right;">                
                           <%= link_to 'Approve Balance', approve_balance_super_admin_home_path(user),:class=>"list-product-edit " %>
                           <%= link_to 'Reject', approve_balance_super_admin_home_path(user),:class=>"list-product-edit" %>

@@ -61,7 +61,7 @@ class HomesController < ApplicationController
         balance = @user.balance_request
       end
       balance = params["amount"].to_i
-      UserBalance.create(:amount=>balance,:user_id=>@user.id)
+      UserBalance.create(:amount=>balance,:user_id=>@user.id,:comments=>params["comments"])
       redirect_to list_all_users_homes_path 
     else
     end
