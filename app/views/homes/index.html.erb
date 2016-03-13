@@ -35,10 +35,10 @@
               </thead>
               <tbody>
                 
-                <td><%= transport = current_user.transport_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum  %></td>
-                <td><%= hotel = current_user.hotel_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:total_amount).sum %></td>
-                <td><%= food = current_user.food_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
-                <td><%= extra = current_user.extra_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
+                <td><%= transport = current_user.transport_expenditures.map(&:payment).sum  %></td>
+                <td><%= hotel = current_user.hotel_expenditures.map(&:total_amount).sum %></td>
+                <td><%= food = current_user.food_expenditures.map(&:payment).sum %></td>
+                <td><%= extra = current_user.extra_expenditures.map(&:payment).sum %></td>
                 <td><%= current_user.total_amount %></td>
                 <td><%= food+hotel+extra+transport %></td>            
                 <td><%= current_user.current_amount %></td>
