@@ -30,6 +30,7 @@
                         <td><%= user.amount %></td>
                         <td style="text-align:right;">                
                           <%= link_to 'Approve Balance', approve_balance_super_admin_home_path(user),:class=>"list-product-edit" %>
+                          <%= link_to 'Reject', approve_balance_super_admin_home_path(user),:class=>"list-product-edit" %>
                         </td>
                       </tr>
                     <% end %>
