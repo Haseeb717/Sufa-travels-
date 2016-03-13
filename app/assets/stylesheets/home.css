@@ -109,6 +109,7 @@ input[type=file] {
 }
 .listing-products .list-product-edit{
   background-color: #286090;
+  text-decoration: none;
 }
 .listing-products .list-product-delete{
   background-color: #d9534f;
