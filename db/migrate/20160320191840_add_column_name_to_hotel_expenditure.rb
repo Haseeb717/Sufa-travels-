@@ -2,7 +2,7 @@ class AddColumnNameToHotelExpenditure < ActiveRecord::Migration
   def change
     add_column :hotel_expenditures, :d_room_type, :integer
     add_column :hotel_expenditures, :t_room_type, :integer
-    add_column :hotel_expenditures, :q_room_type, :intger
+    add_column :hotel_expenditures, :q_room_type, :integer
     add_column :hotel_expenditures, :d_rooms, :integer,:default=>0
     add_column :hotel_expenditures, :t_rooms, :integer,:default=>0
     add_column :hotel_expenditures, :q_rooms, :integer,:default=>0
