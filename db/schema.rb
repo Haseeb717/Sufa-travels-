@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313211124) do
+ActiveRecord::Schema.define(version: 20160320191840) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -118,6 +118,15 @@ ActiveRecord::Schema.define(version: 20160313211124) do
     t.integer  "children"
     t.integer  "infant"
     t.integer  "no_of_beds"
+    t.integer  "d_room_type"
+    t.integer  "t_room_type"
+    t.integer  "q_room_type"
+    t.integer  "d_rooms",            default: 0
+    t.integer  "t_rooms",            default: 0
+    t.integer  "q_rooms",            default: 0
+    t.integer  "charge_d_room",      default: 0
+    t.integer  "charge_t_room",      default: 0
+    t.integer  "charge_q_room",      default: 0
   end
 
   add_index "hotel_expenditures", ["user_id"], name: "index_hotel_expenditures_on_user_id"

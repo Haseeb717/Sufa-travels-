@@ -81,8 +81,47 @@
             </tr>
 
             <tr>
-              <td><strong>Room type:</strong></td>
-              <td><%= @hotel_expenditure.room_type %></td>
+              <td><strong> Dual Room type:</strong></td>
+              <td><%= @hotel_expenditure.d_room_type %></td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Charges per Dual day:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.charge_d_room %>
+              </td>
+            </tr>
+
+
+
+            <tr>
+              <td><strong>Triple Room type:</strong></td>
+              <td><%= @hotel_expenditure.t_room_type %></td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Charges per Triple day:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.charge_t_room %>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong> Quad Room type:</strong></td>
+              <td><%= @hotel_expenditure.q_room_type %></td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Charges per Quad day:</strong>
+              </td>
+              <td>
+                <%= @hotel_expenditure.charge_q_room %>
+              </td>
             </tr>
 
             <tr>
@@ -99,14 +138,7 @@
               </td>
             </tr>
 
-            <tr>
-              <td>
-                <strong>Charges per day:</strong>
-              </td>
-              <td>
-                <%= @hotel_expenditure.charges_per_day %>
-              </td>
-            </tr>
+            
 
             <tr>
               <td><strong>Total amount:</strong></td>

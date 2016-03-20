@@ -69,28 +69,82 @@
             <%= f.number_field :infant, autofocus: true, placeholder: "Infants",:required => true, class: "form-control" %>
           </div>
         </div>
+        <h3>Dual Room Detail</h3>
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Room Type<span class="required">*</span>:</label>
+          
+          <div class="col-lg-9">
+            <%= f.select(:d_room_type, HotelExpenditure.d_room_types.keys.to_a,{:prompt => 'Dual Room Type'}, { :required => true,:class => 'form-control room_type' }) %>
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">No of Rooms<span class="required">*</span>:</label>
+          
+          <div class="col-lg-9">
+            <%= f.number_field :d_rooms, autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
+          </div>
+        </div>
 
         <div class="form-group">
-          <label class="col-lg-12 control-label" for="">No of Rooms<span class="required">*</span>:</label>
-          <div class="col-lg-12">
-            <%= f.number_field :no_of_rooms, autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
+          <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.number_field :charge_t_room, autofocus: true, placeholder: "Charge Per Room",:required => true, class: "form-control" %>
+          </div>
+        </div>
+        <h3>Tertiary Room Detail</h3>
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Room Type<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.select(:t_room_type, HotelExpenditure.t_room_types.keys.to_a,{:prompt => 'Tertiary Room Type'}, { :required => true,:class => 'form-control room_type' }) %>
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">No of Rooms<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.number_field :t_rooms,autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.number_field :charge_d_room, autofocus: true, placeholder: "Charge Per Room",:required => true, class: "form-control" %>
+          </div>
+        </div>
+        <h3>Quad Room Detail</h3>
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Room Type<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.select(:q_room_type, HotelExpenditure.q_room_types.keys.to_a,{:prompt => 'Quadruple Room Type'}, { :required => true,:class => 'form-control room_type' }) %>
           </div>
         </div>
 
 
-        <div class="form-group ">
-          <label class="col-lg-12 control-label" for="">Room Type<span class="required">*</span>:</label>
-          <div class="col-lg-12">
-          <%= f.select(:room_type, HotelExpenditure.room_types.keys.to_a,{:prompt => 'Room Type'}, { :required => true,:class => 'form-control room_type' }) %>  
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">No of Rooms<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.number_field :q_rooms, autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
           </div>
         </div>
 
-        <div class="form-group no_of_beds">
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            
+            <%= f.number_field :charge_q_room, autofocus: true, placeholder: "Charge Per Room",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <!-- <div class="form-group no_of_beds">
           <label class="col-lg-12 control-label" for="">No of Beds<span class="required">*</span>:</label>
           <div class="col-lg-12">
             <%= f.number_field :no_of_beds, autofocus: true, placeholder: "No of Beds",:required => true, class: "form-control" %>
           </div>
-        </div> 
+        </div>  -->
 
         <div class="form-group">
           <label class="col-lg-12 control-label" for="">Room Basis<span class="required">*</span>:</label>
@@ -113,13 +167,7 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="col-lg-12 control-label" for="">Charges Per Day<span class="required">*</span>:</label>
-          <div class="col-lg-12">
-            <%= f.number_field :charges_per_day, autofocus: true, placeholder: "Charges Per Day",:required => true, class: "form-control" %>
-          </div>
-        </div>
-
+       
 
         <div class="form-group">
           <label class="col-lg-12 control-label" for="">Comments<span class="required">*</span>:</label>
@@ -148,15 +196,15 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.room_type').bind('change', function (e) { 
-    if( $('.room_type').val() == 'Selective_Beds') {
-      $('.no_of_beds').show();
-    }
-    else  {
-      $('.no_of_beds').hide();
-    }         
-  })
-});
-</script>
+// <script type="text/javascript">
+// $(document).ready(function(){
+//   $('.room_type').bind('change', function (e) { 
+//     if( $('.room_type').val() == 'Selective_Beds') {
+//       $('.no_of_beds').show();
+//     }
+//     else  {
+//       $('.no_of_beds').hide();
+//     }         
+//   })
+// });
+// </script>

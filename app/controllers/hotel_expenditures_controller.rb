@@ -41,6 +41,8 @@ class HotelExpendituresController < ApplicationController
     respond_to do |format|
       if @hotel_expenditure.save
         current_user.hotel_expenditures << @hotel_expenditure
+        
+        @hotel_expenditure.update_rooms()
         @hotel_expenditure.update_user_accounts(current_user)
         format.html { redirect_to @hotel_expenditure, notice: 'HotelExpenditure was successfully created.' }
         format.json { render :show, status: :created, location: @hotel_expenditure }
@@ -93,6 +95,6 @@ class HotelExpendituresController < ApplicationController
     end
 
     def hotel_expenditure_params
-      params.require(:hotel_expenditure).permit(:voucher_reference,:guest_name,:room_basis,:supplier_name,:expenditure_type, :checked_in_date, :checked_out_date, :total_days, :charges_per_day, :no_of_rooms, :room_type, :total_amount, :hotel_name, :user_id,:no_of_persons,:adults,:children, :comments,:image,:infant)
+      params.require(:hotel_expenditure).permit(:voucher_reference,:guest_name,:room_basis,:supplier_name,:expenditure_type, :checked_in_date, :checked_out_date, :total_days, :charges_per_day, :no_of_rooms, :room_type, :total_amount, :hotel_name, :user_id,:no_of_persons,:adults,:children, :comments,:image,:infant,:d_room_type,:t_room_type,:q_room_type,:d_rooms,:t_rooms,:q_rooms,:charge_d_room,:charge_t_room,:charge_q_room)
     end
 end
