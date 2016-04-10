@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  opening_balance: 1
+  closing_balance: 1
+
+two:
+  user_id: 
+  opening_balance: 1
+  closing_balance: 1

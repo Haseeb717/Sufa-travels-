@@ -6,40 +6,49 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="col-lg-5 centerForm2" style="padding: 25px 0 0 20px">
-              <table>
-              <tr>
-                <td><strong class="control-label">Name:</strong></td>
-                <td><%= current_user.name %></td>
-              </tr>
-              
-              <tr>
-                <td><strong class="control-label">Food Expenses:</strong></td>
-                <td><%= food = current_user.food_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
-              </td>
-              <tr>
-                <td><strong class="control-label">Transport Expenses:</strong></td>
-                <td><%= transport = current_user.transport_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum  %></td>
-              </tr>
-              
-              <tr>
-                <td><strong class="control-label">Hotel Expenses:</strong></td>
-                <td><%= hotel = current_user.hotel_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:total_amount).sum %></td>
-              </tr>
-              <tr>
-                <td><strong class="control-label">Miscellaneous Expenses:</strong></td>
-                <td><%= extra = current_user.extra_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
-              </tr>
+              <p><strong class="control-label">Opening Balance:</strong>
+                <span>5000</span></p>
 
-              <tr>
-                <td><strong class="control-label">Total Expenses:</strong></td>
-                <td><%= food+hotel+extra+transport %></td>
-              </tr>
+              <p><strong class="control-label">Recieved Amount Today:</strong>
+                <span>5000</span></p>
+              <hr>
+              <p><strong class="control-label">Total Amount for use:</strong>
+                <span><%= current_user.current_amount %></span></p>
 
-              <tr>
-                <td><strong class="control-label">Balance:</strong></td>
-                <td><%= current_user.current_amount %></td>
-              </tr>
-              </table>
+              <h3>Expenses / Payment</h3>
+              <div>
+                <p>
+                  <strong class="control-label">Food Expenses:</strong>
+                  <span><%= food = current_user.food_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></span>
+                </p>
+
+                <p>
+                  <strong class="control-label">Transport Expenses:</strong>
+                  <span><%= transport = current_user.transport_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum  %></span>
+                </p>
+                
+                <p>
+                  <strong class="control-label">Hotel Expenses:</strong>
+                  <span><%= hotel = current_user.hotel_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:total_amount).sum %></span>
+                </p>
+                
+                <p>
+                  <strong class="control-label">Miscellaneous Expenses:</strong>
+                  <span><%= extra = current_user.extra_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></span>
+                </p>
+              </div>
+
+              <p>
+                <strong class="control-label">Total Expenses:</strong>
+                <span><%= food+hotel+extra+transport %></span>
+              </p>
+              
+
+              <p>
+                <strong class="control-label">Balance:</strong>
+                <span><%= current_user.current_amount %></span>
+              </p>
+              
             </div>
 
             <div class="col-lg-7">
