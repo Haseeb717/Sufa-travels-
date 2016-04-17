@@ -199,52 +199,63 @@
                     <thead>
                       <tr>
                         <th style="color:#5ca545">Date</th>
+                        <th style="color:#5ca545">Opening Balance</th>
                         <th style="color:#5ca545">Balance Added</th>
                         <th style="color:#5ca545">FoodExpenditure</th>
                         <th style="color:#5ca545">TransportExpenditure</th>
                         <th style="color:#5ca545">MiscellaneousExpenditure</th>
                         <th style="color:#5ca545">HotelExpenditure</th>
+                        <th style="color:#5ca545">Balance Added</th>
+                        <th style="color:#5ca545">Closing Balance</th>
                       </tr>
                     </thead>
                     <tbody>
                       <% (@start_date..@end_date).each do |day| %>                      
-                        <% credit_added = UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,day.beginning_of_day,day.end_of_day) %>
+                        <% credit_added = UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,day.beginning_of_day,day.end_of_day) %>
                         <% u_credit = 0 %>
                         <% credit_added.each do |credit| %>
                           <% u_credit = u_credit + credit.amount %>
                         <% end %> 
 
-                        <% f_expenditures = FoodExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,day.beginning_of_day,day.end_of_day) %>
+                        <% f_expenditures = FoodExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?"@user.id,day.beginning_of_day,day.end_of_day) %>
                         <% f_expenses = 0 %>
                         <% f_expenditures.each do |credit| %>
                           <% f_expenses = f_expenses + credit.payment %>
                         <% end %> 
 
-                        <% t_expenditures = TransportExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,day.beginning_of_day,day.end_of_day)%>
+                        <% t_expenditures = TransportExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,day.beginning_of_day,day.end_of_day)%>
                         <% t_expenses = 0 %>
                         <% t_expenditures.each do |credit| %>
                           <% t_expenses = t_expenses + credit.payment %>
                         <% end %> 
 
-                        <% e_expenditures = ExtraExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,day.beginning_of_day,day.end_of_day) %>
+                        <% e_expenditures = ExtraExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,day.beginning_of_day,day.end_of_day) %>
                         <% e_expenses = 0 %>
                         <% e_expenditures.each do |credit| %>
                           <% e_expenses = e_expenses + credit.payment %>
                         <% end %> 
 
-                        <% h_expenditures = HotelExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,day.beginning_of_day,day.end_of_day) %>
+                        <% h_expenditures = HotelExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,day.beginning_of_day,day.end_of_day) %>
                         <% h_expenses = 0 %>
                         <% h_expenditures.each do |credit| %>
                           <% h_expenses = h_expenses + credit.total_amount %>
-                        <% end %> 
+                        <% end %>
+
+                        <% opening_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,Time.now.beginning_of_day,Time.now.end_of_day).map(&:opening_balance).sum %>
+
+                        <% closing_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,Time.now.beginning_of_day,Time.now.end_of_day).map(&:closing_balance).sum %>  
 
                         <tr>
                           <td><%= day %></td>
+                          <td><%= opening_balance %></td>
                           <td><%= u_credit %></td>
                           <td><%= f_expenses %></td>
                           <td><%= t_expenses %></td>
                           <td><%= e_expenses %></td>
                           <td><%= h_expenses %></td>
+                          <td><%= t_expenses + f_expenses + h_expenses + e_expenses %></td>
+                          
+                          <td><%= closing_balance %></td>
                         </tr>
 
                       <% end %>

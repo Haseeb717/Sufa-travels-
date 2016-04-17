@@ -7,13 +7,19 @@
           <div class="panel-body">
             <div class="col-lg-5 centerForm2" style="padding: 25px 0 0 20px">
               <p><strong class="control-label">Opening Balance:</strong>
-                <span>5000</span></p>
+                <span><%= opening_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,Time.now.beginning_of_day,Time.now.end_of_day).map(&:opening_balance).sum %></span>
+              </p>
 
               <p><strong class="control-label">Recieved Amount Today:</strong>
-                <span>5000</span></p>
+                <% credit_added = UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,Time.now.beginning_of_day,Time.now.end_of_day) %>
+                <% u_credit = 0 %>
+                <% credit_added.each do |credit| %>
+                  <% u_credit = u_credit + credit.amount %>
+                <% end %> 
+                <span><%= u_credit %></span></p>
               <hr>
               <p><strong class="control-label">Total Amount for use:</strong>
-                <span><%= current_user.current_amount %></span></p>
+                <span><%= opening_balance+u_credit %></span></p>
 
               <h3>Expenses / Payment</h3>
               <div>
@@ -62,3 +68,22 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('.start_date').datepicker({
+    dateFormat: 'yy-mm-dd',
+    onSelect: function () {
+        $('.end_date').datepicker('option', {
+            minDate: $(this).datepicker('getDate')
+        });
+    }
+  });
+
+  $('.end_date').datepicker({
+      dateFormat: 'yy-mm-dd' 
+  });
+});
+
+
+</script>

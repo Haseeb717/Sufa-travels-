@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401212349) do
+ActiveRecord::Schema.define(version: 20160403202104) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20160401212349) do
     t.integer  "closing_balance", default: 0
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "expense",         default: 0
+    t.integer  "balance_added",   default: 0
   end
 
   add_index "daily_balances", ["user_id"], name: "index_daily_balances_on_user_id"

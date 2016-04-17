@@ -219,12 +219,15 @@
                     <thead>
                       <tr>
                         <th style="color:#5ca545">Date</th>
+                        <th style="color:#5ca545">Opening Balance</th>
+                        <th style="color:#5ca545">Balance Added</th>
                         <th style="color:#5ca545">TransportExpenditure</th>
                         <th style="color:#5ca545">FoodExpenditure</th>
                         <th style="color:#5ca545">HotelExpenditure</th>
                         <th style="color:#5ca545">MiscellaneousExpenditure</th>
-                        
                         <th style="color:#5ca545">Balance Added</th>
+                        <th style="color:#5ca545">Closing Balance</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -257,18 +260,26 @@
                         <% h_expenses = 0 %>
                         <% h_expenditures.each do |credit| %>
                           <% h_expenses = h_expenses + credit.total_amount %>
-                        <% end %> 
+                        <% end %>
+
+                        <% opening_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,Time.now.beginning_of_day,Time.now.end_of_day).map(&:opening_balance).sum %>
+
+                        <% closing_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,Time.now.beginning_of_day,Time.now.end_of_day).map(&:closing_balance).sum %>  
 
                         <tr>
                           <td><%= day %></td>
+                          <td><%= opening_balance %></td>
+                          
+                          <td><%= u_credit %></td>
                           <td><%= t_expenses %></td>
                           <td><%= f_expenses %></td>
                           <td><%= h_expenses %></td>
                           
                           
                           <td><%= e_expenses %></td>
+                          <td><%= t_expenses + f_expenses + h_expenses + e_expenses %></td>
                           
-                          <td><%= u_credit %></td>
+                          <td><%= closing_balance %></td>
                         </tr>
 
                       <% end %>
@@ -302,3 +313,22 @@
   
 </div>
 
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('.start_date').datepicker({
+    dateFormat: 'yy-mm-dd',
+    onSelect: function () {
+        $('.end_date').datepicker('option', {
+            minDate: $(this).datepicker('getDate')
+        });
+    }
+  });
+
+  $('.end_date').datepicker({
+      dateFormat: 'yy-mm-dd' 
+  });
+});
+
+
+</script>
