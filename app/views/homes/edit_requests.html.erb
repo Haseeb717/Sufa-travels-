@@ -13,6 +13,7 @@
             <table class="table table-striped table-bordered listing-products-table">
               <thead>
                 <tr>
+                  <th style="color:#5ca545">Name</th>
                   <th style="color:#5ca545">Hotel Name</th>
                   <th style="color:#5ca545">Expenditure Type</th>
                   <th style="color:#5ca545">Food Type</th>
@@ -24,6 +25,7 @@
               <tbody>
                 <% @food_expenditures.each do |ad| %>
                   <tr>
+                    <td><%= ad.user.name %></td>
                     <td><%= ad.hotel_name %></td>
                     <td><%= ad.expenditure_type %></td>
                     <td><%= ad.food_type %></td>
@@ -51,6 +53,7 @@
             <table class="table table-striped table-bordered listing-products-table">
               <thead>
                 <tr>
+                  <th>Name</th>
                   <th style="color:#5ca545">Hotel Name</th>
                   <th style="color:#5ca545">Total Days</th>
                   <th style="color:#5ca545">No of Rooms</th>
@@ -63,6 +66,7 @@
               <tbody>
                 <% @hotel_expenditures.each do |ad| %>
                   <tr>
+                    <td><%= ad.user.name %></td>
                     <td><%= ad.hotel_name %></td>
                     <td><%= ad.total_days %></td>
                     <td><%= ad.no_of_rooms %></td>
@@ -91,6 +95,7 @@
             <table class="table table-striped table-bordered listing-products-table">
               <thead>
                 <tr>
+                  <th style="color:#5ca545">Name</th>
                   <th style="color:#5ca545">Transport</th>
                   <th style="color:#5ca545">No of seats</th>
                   <th style="color:#5ca545">Departure place</th>
@@ -103,6 +108,7 @@
               <tbody>
                 <% @transport_expenditures.each do |ad| %>
                   <tr>
+                    <td><%= ad.user.name %></td>
                     <td><%= ad.transport_type %></td>
                     <td><%= ad.no_of_seats %></td>
                     <td><%= ad.arrival_place %></td>
@@ -130,6 +136,7 @@
             <table class="table table-striped table-bordered listing-products-table">
               <thead>
                 <tr>
+                  <th style="color:#5ca545">Name</th>
                   <th style="color:#5ca545">Expenditure Type</th>
                   <th style="color:#5ca545">Payment</th>
                   <th style="color:#5ca545">Reason</th>
@@ -139,6 +146,7 @@
               <tbody>
                 <% @extra_expenditures.each do |ad| %>
                   <tr>
+                    <td><%= ad.user.name %></td>
                     <td><%= ad.expenditure_type %></td>
                     <td><%= ad.payment %></td>
                     <td><%= ad.reason %></td>              

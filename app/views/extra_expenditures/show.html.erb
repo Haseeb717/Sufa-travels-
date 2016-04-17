@@ -13,7 +13,7 @@
 						  <td><%= @extra_expenditure.extra_type %></td>
 						</tr>
 						<tr>
-							<% if @extra_expenditure.other_reason.nil? %>
+							<% if !@extra_expenditure.other_reason.nil? %>
 								<td><strong>Specific Reason:</td></strong>
 								<td><%= @extra_expenditure.other_reason %></td>
 

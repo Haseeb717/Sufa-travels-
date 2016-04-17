@@ -43,7 +43,7 @@ input[type=file] {
   padding: 0;
 }
 .dropdown-menu li> a {
-  padding: 15px 25px;
+  padding: 5px 15px;
   color: white; 
 }
 .dropdown-menu > li {

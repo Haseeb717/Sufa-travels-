@@ -2,10 +2,10 @@ class HotelExpenditure < ActiveRecord::Base
   belongs_to :user
   has_attached_file :image, styles: { small: "64x64", med: "100x100", original: "250x250"}
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  enum d_room_type: [:D_standard,:D_suprier,:D_classic,:D_suprier_HV,:D_Delux,:D_Delux_HV,:D_Twin_room,:D_PartiaL_HV,:D_Kaaba_View,:Selective_Beds,:Multiple_Rooms]
-  enum room_basis: [:R_B,:B_B,:R_O]
-  enum q_room_type: [:Q_standard,:Q_suprier,:Q_classic,:Q_suprier_HV,:Q_Delux,:Q_Delux_HV,:Q_PartiaL_HV,:Q_Kaaba_View]
-  enum t_room_type: [:T_standard,:T_suprier,:T_classic,:T_suprier_HV,:T_Delux,:T_Delux_HV,:T_PartiaL_HV,:T_Kaaba_View]
+  enum d_room_type: [:D_standard,:D_suprier,:D_classic,:D_suprier_HV,:D_Delux,:D_Delux_HV,:D_Twin_room,:D_PartiaL_HV,:D_Kaaba_View,:Selective_Beds]
+  enum room_basis: [:B_B,:R_O,:H_B,:F_B]
+  enum q_room_type: [:Q_standard,:Q_suprier,:Q_classic,:Q_suprier_HV,:Q_Delux,:Q_Delux_HV,:Q_PartiaL_HV,:Q_Kaaba_View,:Selective_beds]
+  enum t_room_type: [:T_standard,:T_suprier,:T_classic,:T_suprier_HV,:T_Delux,:T_Delux_HV,:T_PartiaL_HV,:T_Kaaba_View,:Selective_Bed]
   before_save :set_columns
 
   def set_columns

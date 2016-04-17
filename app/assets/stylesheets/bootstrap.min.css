@@ -4891,7 +4891,7 @@
 }
 .navbar-inverse
 {
-	background:#f9f8f8 url(headerBg.jpg) left top repeat-x;
+	background:rgb(145, 152, 116);
 	box-shadow: 0px 2px 5px #2f2f2f;
 	border: none;
 }

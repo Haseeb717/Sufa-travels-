@@ -320,7 +320,7 @@ class HomesController < ApplicationController
     if params["user"].nil?  || params["user"].empty?
       @user = User.user.first
     else
-      @user = params["user"].to_i
+      @user = User.find(params["user"])
     end
     if params["type"].nil?  || params["type"].empty? 
       

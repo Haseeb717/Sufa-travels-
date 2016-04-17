@@ -3,7 +3,7 @@ class ExtraExpenditure < ActiveRecord::Base
   has_attached_file :image, styles: { small: "64x64>", med: "100x100>",small_large: "200x200>" ,original: "250x250>", extra_large: "500x500>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  enum extra_type: [:Mobile,:Transport,:Al_Hussam,:Fast_Aviation,:Dau_Al_Madina,:Other]
+  enum extra_type: [:Mobile,:Dau_Al_Madina,:Other]
 
   def update_user_accounts(user)
   	total_expenditure = self.payment + user.total_expenditures_amount
