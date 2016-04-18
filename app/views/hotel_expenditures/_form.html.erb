@@ -71,7 +71,7 @@
         </div>
         <h3>Dual Room Detail</h3>
         <div class="form-group">
-          <label class="col-lg-3 control-label" for="">Room Type<span class="required">*</span>:</label>
+          <label class="col-lg-3 control-label" for="">Room Type:</label>
           
           <div class="col-lg-9">
             <%= f.select(:d_room_type, HotelExpenditure.d_room_types.keys.to_a,{:prompt => 'Dual Room Type'}, {:class => 'form-control room_type' }) %>
@@ -90,12 +90,12 @@
         <div class="form-group">
           <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
           <div class="col-lg-9">
-            <%= f.number_field :charge_t_room, autofocus: true, placeholder: "Charge Per Room",:class=>"form-control" %>
+            <%= f.number_field :charge_d_room, autofocus: true, placeholder: "Charge Per Room",:class=>"form-control" %>
           </div>
         </div>
         <h3>Tertiary Room Detail</h3>
         <div class="form-group">
-          <label class="col-lg-3 control-label" for="">Room Type<span class="required">*</span>:</label>
+          <label class="col-lg-3 control-label" for="">Room Type:</label>
           <div class="col-lg-9">
             <%= f.select(:t_room_type, HotelExpenditure.t_room_types.keys.to_a,{:prompt => 'Tertiary Room Type'}, { :class => 'form-control room_type' }) %>
           </div>
@@ -103,23 +103,23 @@
 
         
         <div class="form-group">
-          <label class="col-lg-3 control-label" for="">No of Rooms<span class="required">*</span>:</label>
+          <label class="col-lg-3 control-label" for="">No of Rooms:</label>
           <div class="col-lg-9">
-            <%= f.number_field :t_rooms,autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
+            <%= f.text_field :t_rooms,autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
+          <label class="col-lg-3 control-label" for="">Charges Per Room:</label>
           <div class="col-lg-9">
-            <%= f.number_field :charge_d_room, autofocus: true, placeholder: "Charge Per Room",:required => true, class: "form-control" %>
+            <%= f.text_field :charge_t_room, autofocus: true, placeholder: "Charge Per Room",:required => true, class: "form-control" %>
           </div>
         </div>
         <h3>Quad Room Detail</h3>
         <div class="form-group">
           <label class="col-lg-3 control-label" for="">Room Type<span class="required">*</span>:</label>
           <div class="col-lg-9">
-            <%= f.select(:q_room_type, HotelExpenditure.q_room_types.keys.to_a,{:prompt => 'Quadruple Room Type'}, { :required => true,:class => 'form-control room_type' }) %>
+            <%= f.select(:q_room_type, HotelExpenditure.q_room_types.keys.to_a,{:prompt => 'Quadruple Room Type'}, { :class => 'form-control room_type' }) %>
           </div>
         </div>
 
@@ -127,7 +127,7 @@
         <div class="form-group">
           <label class="col-lg-3 control-label" for="">No of Rooms<span class="required">*</span>:</label>
           <div class="col-lg-9">
-            <%= f.number_field :q_rooms, autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
+            <%= f.text_field :q_rooms, autofocus: true, placeholder: "No of Rooms", class: "form-control" %>
           </div>
         </div>
 
@@ -135,7 +135,7 @@
           <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
           <div class="col-lg-9">
             
-            <%= f.number_field :charge_q_room, autofocus: true, placeholder: "Charge Per Room",:required => true, class: "form-control" %>
+            <%= f.text_field :charge_q_room, autofocus: true, placeholder: "Charge Per Room", class: "form-control" %>
           </div>
         </div>
 

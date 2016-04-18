@@ -11,13 +11,32 @@ class HotelExpenditure < ActiveRecord::Base
   def set_columns
   	self.total_days = (self.checked_out_date - self.checked_in_date).to_i/86400 + 1
   end
-
+  d_rooms = 0
+  t_rooms = 0
+  q_rooms = 0
   def update_rooms
-    d_room_total = self.d_rooms * self.charge_d_room
-    t_room_total = self.t_rooms * self.charge_t_room
-    q_room_total = self.q_rooms * self.charge_q_room
+    if self.d_rooms.nil?
+      d_rooms = 0
+    else
+      d_rooms = self.d_rooms
+    end
+    if self.t_rooms.nil?
+      t_rooms = 0
+    else
+      t_rooms = self.t_rooms
+    end
+    if self.q_rooms.nil?
+      q_rooms = 0
+    else
+      q_rooms = self.q_rooms
+    end
+    
+    d_room_total = d_rooms * self.charge_d_room
+    t_room_total = t_rooms * self.charge_t_room
+    q_room_total = q_rooms * self.charge_q_room
     total_charges = d_room_total + t_room_total + q_room_total
-    total_rooms = self.d_rooms + self.t_rooms + self.d_rooms
+
+    total_rooms = self.d_rooms + self.t_rooms + self.q_rooms
     self.update_columns(:no_of_rooms=>total_rooms,:total_amount=>total_charges)
   end
 
