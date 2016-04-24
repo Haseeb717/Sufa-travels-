@@ -12,8 +12,8 @@ class DailyBalance < ActiveRecord::Base
   	  daily_balance = DailyBalance.where("created_at >= ? and created_at <= ? and user_id = ?",Date.yesterday.beginning_of_day,Date.yesterday.end_of_day,user.id)
       if daily_balance.count > 0
         opening_balance = daily_balance.first.opening_balance
-        closing_balance = (opening_balance - expenses) + user_balance
-        daily_balance.last.update_attributes(:closing_balance=>closing_balance,:expense=>expense,:balance_added=>user_balance)
+        closing_balance = (opening_balance - total_expense) + user_balance
+        daily_balance.last.update_attributes(:closing_balance=>closing_balance,:expense=>total_expense,:balance_added=>user_balance)
         DailyBalance.create(:opening_balance=>closing_balance,:user_id=>user.id)
       else
         DailyBalance.create(:opening_balance=>user.current_amount,:user_id=>user.id)
