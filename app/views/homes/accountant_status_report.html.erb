@@ -265,7 +265,7 @@
                         <% h_expenditures.each do |credit| %>
                           <% h_expenses = h_expenses + credit.total_amount %>
                         <% end %>
-                        <% byebug %>
+                        
                         <% opening_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,day.beginning_of_day,day.end_of_day).map(&:opening_balance).sum %>
 
                         <% closing_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",@user.id,day.beginning_of_day,day.end_of_day).map(&:closing_balance).sum %>  
