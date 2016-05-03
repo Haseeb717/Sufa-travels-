@@ -10,7 +10,7 @@ class DailyBalance < ActiveRecord::Base
   		total_expense = food+hotel+extra+transport
       user_balance = UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,Date.yesterday.beginning_of_day,Date.yesterday.end_of_day).map(&:amount).sum 
   	  daily_balance = DailyBalance.where("created_at >= ? and created_at <= ? and user_id = ?",Date.yesterday.beginning_of_day,Date.yesterday.end_of_day,user.id)
-      
+      byebug
       if daily_balance.count > 0
         
         opening_balance = daily_balance.first.opening_balance
