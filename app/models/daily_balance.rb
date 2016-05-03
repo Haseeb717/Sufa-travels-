@@ -3,14 +3,14 @@ class DailyBalance < ActiveRecord::Base
 
   def self.update_balance
   	User.user.all.each do |user|
-  		food = FoodExpenditure.where(:created_at=>Date.yesterday,:user_id=>user.id).map(&:payment).sum
-  		extra = ExtraExpenditure.where(:created_at=>Date.yesterday,:user_id=>user.id).map(&:payment).sum
-  		hotel = HotelExpenditure.where(:created_at=>Date.yesterday,:user_id=>user.id).map(&:total_amount).sum
-  		transport = TransportExpenditure.where(:created_at=>Date.yesterday,:user_id=>user.id).map(&:payment).sum
+  		food = FoodExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,Date.yesterday.beginning_of_day,Date.yesterday.end_of_day).map(&:payment).sum
+  		extra = ExtraExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,Date.yesterday.beginning_of_day,Date.yesterday.end_of_day).map(&:payment).sum
+  		hotel = HotelExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,Date.yesterday.beginning_of_day,Date.yesterday.end_of_day).map(&:total_amount).sum
+  		transport = TransportExpenditure.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,Date.yesterday.beginning_of_day,Date.yesterday.end_of_day).map(&:payment).sum
   		total_expense = food+hotel+extra+transport
       user_balance = UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",user.id,Date.yesterday.beginning_of_day,Date.yesterday.end_of_day).map(&:amount).sum 
   	  daily_balance = DailyBalance.where("created_at >= ? and created_at <= ? and user_id = ?",Date.yesterday.beginning_of_day,Date.yesterday.end_of_day,user.id)
-      
+
       if daily_balance.count > 0
         
         opening_balance = daily_balance.first.opening_balance
