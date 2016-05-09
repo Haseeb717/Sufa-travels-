@@ -1,0 +1,217 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-lg-5 centerForm">
+    
+      <%= form_for(@hotel_expenditure, html: { :multipart => true, :class => 'form-horizontal' }) do |f| %>
+
+        <% if @hotel_expenditure.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% @hotel_expenditure.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Agent Name / Voucher Reference<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :voucher_reference, autofocus: true, placeholder: "Voucher Reference",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Guest Name<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :guest_name, autofocus: true, placeholder: "Guest Name",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Hotel Name<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :hotel_name, autofocus: true, placeholder: "Hotel Name",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Supplier Name<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :supplier_name, autofocus: true, placeholder: "Supplier Name",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">No of Persons<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :no_of_persons, autofocus: true, placeholder: "No of Persons",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Adults<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.number_field :adults, autofocus: true, placeholder: "Adults",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Child<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.number_field :children, autofocus: true, placeholder: "Childrens",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Infants<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :infant, autofocus: true, placeholder: "Infants", class: "form-control" %>
+          </div>
+        </div>
+        <h3>Double Room Detail</h3>
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Room Type:</label>
+          
+          <div class="col-lg-9">
+            <%= f.select(:d_room_type, HotelExpenditure.d_room_types.keys.to_a,{:prompt => 'Dual Room Type'}, {:class => 'form-control room_type' }) %>
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">No of Rooms<span class="required">*</span>:</label>
+          
+          <div class="col-lg-9">
+            <%= f.number_field :d_rooms, autofocus: true, placeholder: "No of Rooms", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.number_field :charge_d_room, autofocus: true, placeholder: "Charge Per Room",:class=>"form-control" %>
+          </div>
+        </div>
+        <h3>Triple Room Detail</h3>
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Room Type:</label>
+          <div class="col-lg-9">
+            <%= f.select(:t_room_type, HotelExpenditure.t_room_types.keys.to_a,{:prompt => 'Tertiary Room Type'}, { :class => 'form-control room_type' }) %>
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">No of Rooms:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :t_rooms,autofocus: true, placeholder: "No of Rooms",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Charges Per Room:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :charge_t_room, autofocus: true, placeholder: "Charge Per Room",:required => true, class: "form-control" %>
+          </div>
+        </div>
+        <h3>Quad Room Detail</h3>
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Room Type<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.select(:q_room_type, HotelExpenditure.q_room_types.keys.to_a,{:prompt => 'Quadruple Room Type'}, { :class => 'form-control room_type' }) %>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">No of Rooms<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            <%= f.text_field :q_rooms, autofocus: true, placeholder: "No of Rooms", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Charges Per Room<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+            
+            <%= f.text_field :charge_q_room, autofocus: true, placeholder: "Charge Per Room", class: "form-control" %>
+          </div>
+        </div>
+
+        <!-- <div class="form-group no_of_beds">
+          <label class="col-lg-12 control-label" for="">No of Beds<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.number_field :no_of_beds, autofocus: true, placeholder: "No of Beds",:required => true, class: "form-control" %>
+          </div>
+        </div>  -->
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label" for="">Room Basis<span class="required">*</span>:</label>
+          <div class="col-lg-9">
+          <%= f.select(:room_basis, HotelExpenditure.room_bases.keys.to_a,{:prompt => 'Room Basis'}, { :required => true,:class => 'form-control' }) %>  
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Checked In Date<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.datetime_select :checked_in_date, placeholder: "Checked In Date",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Checked Out Date<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.datetime_select :checked_out_date, placeholder: "Checked Out Date",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Date<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.datetime_select :created_at, placeholder: "Date",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+       
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Comments<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.text_area :comments, placeholder: "Comments",:required => true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-12 control-label" for="">Image<span class="required">*</span>:</label>
+          <div class="col-lg-12">
+            <%= f.file_field :image, class: "form-control image" %>
+            <% if @hotel_expenditure.persisted? %>
+                <%= image_tag @hotel_expenditure.image.url(), :class=>"edit_image" unless @hotel_expenditure.image.path.nil? %> 
+            <% end %>
+            <img class="preview_image" src="#" alt="your image"/>
+          </div>
+        </div>
+        <%= f.hidden_field :expenditure_type, :value => "Hotel" %>
+
+        <div class="actions">
+          <%= f.submit "Save" , class: "btn loginBtn" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+// <script type="text/javascript">
+// $(document).ready(function(){
+//   $('.room_type').bind('change', function (e) { 
+//     if( $('.room_type').val() == 'Selective_Beds') {
+//       $('.no_of_beds').show();
+//     }
+//     else  {
+//       $('.no_of_beds').hide();
+//     }         
+//   })
+// });
+// </script>
