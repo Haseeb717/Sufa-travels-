@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <%= wicked_pdf_stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= wicked_pdf_javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+  <body onload='number_pages' style="background-color:white">
+    
+    <div id="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

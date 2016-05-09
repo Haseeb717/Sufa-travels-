@@ -1,0 +1,74 @@
+<div class="listing-products marTop100">
+  <div class="row">
+    <div class="col-lg-12" style="padding-left:0px;">
+      <div class="container">
+        <h1>Monthly Report</h1>
+        <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
+          <%= form_tag(accountant_report_homes_path, :method => :get) do %>
+            <ul>
+              <li>
+                <%= select_tag(:month_id, options_for_select([['Jan', 1], ['Feb', 2], ['March', 3], ['April', 4], ['May', 5], ['June', ], ['July', 7], ['August', 8]],@month),class: 'form-control select-option product_like_sort campaign_sort') %>
+              </li>
+              
+              <li><%= submit_tag "Filter" , class: "btn sort_btn" %></li>
+            </ul>
+          <% end %>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <div class="col-lg-11">
+                <table class="table table-striped table-bordered listing-products-table">
+                  <thead>
+                    <tr>
+                      <th style="color:#5ca545"> Employee Name</th>
+                      <th style="color:#5ca545">Email</th>
+                      <th style="color:#5ca545">Total Amount</th>
+                      <th style="color:#5ca545">Remaining Balance</th>
+                      <th style="color:#5ca545">Balance Added</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @balances.each do |balance| %>
+                      
+                      
+                      <tr>
+                        <td><%= balance.user.name %></td>
+                        <td><%= balance.user.email %></td>
+                        <td><%= balance.user.total_amount %></td>
+                        <td><%= balance.user.current_amount %></td>
+                        <td><%= balance.amount %></td>
+                       
+                      </tr>
+                      
+                    <% end %>
+                    
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+      <%= link_to 'Download Report', accountant_status_report_homes_path(format: 'pdf') %>
+      
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('.start_date').datepicker({
+    dateFormat: 'yy-mm-dd',
+    onSelect: function () {
+        $('.end_date').datepicker('option', {
+            minDate: $(this).datepicker('getDate')
+        });
+    }
+  });
+
+  $('.end_date').datepicker({
+      dateFormat: 'yy-mm-dd' 
+  });
+});
+
+
+</script>

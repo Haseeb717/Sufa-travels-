@@ -1,0 +1,74 @@
+<div class="listing-products marTop100">
+  <div class="row">
+    <div class="col-lg-12" style="padding-left:0px;">
+      <div class="container">
+        <h1>Food Expenses Report</h1>
+        <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
+          <div class="col-lg-12 profile-rating-content" style="margin-bottom:20px;">
+            <%= form_tag(food_expenditures_path, :method => :get) do %>
+              <ul>
+                
+                <li>
+                  <%= text_field_tag 'start_date', nil, placeholder: 'Start Date...',class: 'form-control select-option product_like_sort start_date',:value=>@start_date.to_date %>
+                </li>
+                <li>
+                  <%= text_field_tag 'end_date', nil, placeholder: 'End Date...',class: 'form-control select-option product_like_sort end_date',:value=>@end_date.to_date %>
+                </li>
+                <li><%= submit_tag "Filter" , class: "btn sort_btn" %></li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-lg-12">
+              <table class="table table-striped table-bordered listing-products-table">
+                <thead>
+                  <tr>
+                    <th style="color:#5ca545">Ref#</th>
+                    <th style="color:#5ca545">Guest</th>
+                    <th style="color:#5ca545">Hotel name</th>
+                    <th style="color:#5ca545">Food type</th>
+                    <th style="color:#5ca545">No of persons</th>
+                    <th style="color:#5ca545">On Request</th>
+                    <th style="color:#5ca545">Payment</th>
+                    <th style="color:#5ca545">Date</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @food_expenditures.each do |food_expenditure| %>
+                    <tr>
+                      <td><%= food_expenditure.voucher_reference %></td>
+                      <td><%= food_expenditure.guest_name %></td>
+                      <td><%= food_expenditure.hotel_name %></td>
+                      <td><%= food_expenditure.food_type %></td>
+                      <td><%= food_expenditure.no_of_persons %></td>            
+                      <td><%= food_expenditure.on_request_of %></td>
+                      <td><%= food_expenditure.payment %></td>
+                      <td><%= food_expenditure.date.to_s %></td>
+                      <td style="text-align:right;"> 
+                        <%= link_to 'Show', food_expenditure,:class=>"list-product-show" %>
+                        <% if food_expenditure.edit_able? %>
+                          <%= link_to 'Edit', edit_food_expenditure_path(food_expenditure),:class=>"list-product-show" %>
+                        <% else %>
+                          <%= link_to 'Edit Request', edit_request_food_expenditure_path(food_expenditure),:class=>"list-product-edit" %>
+                        <% end %>
+                        
+                      </td>              
+                      
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              
+            </div>
+            <div style="text-align:center"><%= will_paginate @food_expenditures %></div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

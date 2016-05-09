@@ -1,0 +1,72 @@
+<div class="listing-products marTop100">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-lg-5 centerForm">
+          <table>
+
+          <tr>
+            <td><strong>Voucher:</strong></td>
+            <td><%= @transport_expenditure.voucher_reference %></td>
+          </tr>
+          <tr>
+            <td><strong>Guest Name:</strong></td>
+            <td><%= @transport_expenditure.guest_name %></td>
+          </tr>
+          
+          <tr>
+            <td>
+              <strong>Supplier Name:</strong>
+            </td>
+            <td>
+              <%= @transport_expenditure.supplier_name %>
+            </td>
+          </tr>
+
+          <tr>
+            <td><strong>From:</strong></td>
+            <td><%= @transport_expenditure.arrival_place %></td>
+          </tr>
+
+          <tr>
+            <td><strong>To</strong></td>
+            <td><%= @transport_expenditure.departure_place %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Transport type:</strong></td>
+            <td><%= @transport_expenditure.transport_type %></td>
+          </tr>
+
+
+          <tr>
+            <td><strong>No of seats:</strong></td>
+            <td><%= @transport_expenditure.no_of_seats %></td>
+          </tr>
+
+          
+
+          <tr>
+            <td><strong>Payment:</strong></td>
+            <td><%= @transport_expenditure.payment %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Comments:</strong></td>
+            <td><%= @transport_expenditure.comments %></td>
+          </tr>
+
+          <% if !@transport_expenditure.image.path.nil? %>
+            <tr>
+              <td><strong>Recipt Pic:</strong></td>
+              <td>
+                <%= image_tag @transport_expenditure.image.url(:original) %>
+              </td>
+            </tr>
+          <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

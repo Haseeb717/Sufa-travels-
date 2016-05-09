@@ -1,0 +1,97 @@
+<div class="listing-products marTop100">
+  <div class="row">
+    <div class="col-lg-12" style="padding-left:0px;">
+      <div class="container">
+        <h1>Daily Status</h1>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-lg-5 centerForm2" style="padding: 25px 0 0 20px">
+              <table>
+                <tr><td><strong class="control-label">Opening Balance:</strong></td>
+                  <td><span><%= opening_balance = DailyBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,Time.now.beginning_of_day,Time.now.end_of_day).map(&:opening_balance).sum %></span></td>
+                </tr>
+
+                <tr style="border-bottom:1px solid">
+                  <td><strong class="control-label">Recieved Amount Today:</strong></td>
+                  
+                  <td>
+                    <% credit_added = UserBalance.where("user_id= ? and created_at >= ? and created_at <= ?",current_user.id,Time.now.beginning_of_day,Time.now.end_of_day) %>
+                      <% u_credit = 0 %>
+                      <% credit_added.each do |credit| %>
+                        <% u_credit = u_credit + credit.amount %>
+                      <% end %> 
+                    <span><%= u_credit %></span>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td><strong class="control-label">Total Amount for use:</strong></td>
+                  <td><span><%= opening_balance+u_credit %></span></td>
+                </tr>
+
+                <tr><td><h3>Expenses / Payment</h3></td></tr>
+
+                <tr>
+                  <td><strong class="control-label">Food Expenses:</strong></td>
+                  <td><span><%= food = current_user.food_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></span></td>
+                </tr>
+
+                <tr>
+                  <td><strong class="control-label">Transport Expenses:</strong></td>
+                  <td><span><%= transport = current_user.transport_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum  %></span></td>
+                </tr>
+                
+                <tr>
+                  <td><strong class="control-label">Hotel Expenses:</strong></td>
+                  <td><span><%= hotel = current_user.hotel_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:total_amount).sum %></span></td>
+                </tr>
+                
+                <tr>
+                  <td><strong class="control-label">Miscellaneous Expenses:</strong></td>
+                  <td><span><%= extra = current_user.extra_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></span></td>
+                </tr>
+
+                <tr style="border-bottom:1px solid">
+                  <td><strong class="control-label">Total Expenses:</strong></td>
+                  <td><span><%= food+hotel+extra+transport %></span></td>
+                </tr>
+                
+
+                <tr>
+                  <td><strong class="control-label">Balance:</strong></td>
+                  <td><span><%= current_user.current_amount %></span></td>
+                </tr>
+              </table>
+              
+            </div>
+
+            <div class="col-lg-7">
+              <%= column_chart({"Food" => food,"Hotel"=>hotel,"transport"=>transport,"Extra"=>extra}) %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('.start_date').datepicker({
+    dateFormat: 'yy-mm-dd',
+    onSelect: function () {
+        $('.end_date').datepicker('option', {
+            minDate: $(this).datepicker('getDate')
+        });
+    }
+  });
+
+  $('.end_date').datepicker({
+      dateFormat: 'yy-mm-dd' 
+  });
+});
+
+
+</script>

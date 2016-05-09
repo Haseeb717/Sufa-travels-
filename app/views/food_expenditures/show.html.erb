@@ -1,0 +1,72 @@
+<div class="listing-products marTop100">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-lg-5 centerForm">
+          <table>
+          <tr>
+            <td><strong>Voucher:</strong></td>
+            <td><%= @food_expenditure.voucher_reference %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Guest Name:</strong></td>
+            <td><%= @food_expenditure.guest_name %></td>
+          </tr>
+
+          
+
+          <tr>
+            <td><strong>Food type:</strong></td>
+            <td><%= @food_expenditure.food_type %></td>
+          </tr>
+
+          
+
+          <tr>
+            <td><strong>Hotel name:</strong></td>
+            <td><%= @food_expenditure.hotel_name %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Food type:</strong></td>
+            <td><%= @food_expenditure.food_type %></td>
+          </tr>
+
+          <tr>
+            <td><strong>On Request Of:</strong></td>
+            <td><%= @food_expenditure.on_request_of %></td>
+          </tr>
+
+          <tr>
+            <td><strong>No of persons:</strong></td>
+            <td><%= @food_expenditure.no_of_persons.to_s %></td>
+          </tr>
+
+
+          <tr>
+            <td><strong>Payment:</strong></td>
+            <td><%= @food_expenditure.payment %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Comments:</strong></td>
+            <td><%= @food_expenditure.comments %></td>
+          </tr>
+
+
+
+          
+          <% if !@food_expenditure.image.path.nil? %>
+            <tr><td><strong>Recipt Pic:</strong></td>
+              <td>
+                <%= image_tag @food_expenditure.image.url(:original) %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

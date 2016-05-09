@@ -1,0 +1,54 @@
+<div class="listing-products marTop100">
+  <div class="row">
+    <div class="col-lg-12" style="padding-left:0px;">
+      <div class="container">
+        <h1>Daily Status</h1>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="col-lg-5 centerForm2" style="padding: 25px 0 0 20px">
+              <table>
+              <tr>
+                <td><strong class="control-label">Name:</strong></td>
+                <td><%= current_user.name %></td>
+              </tr>
+
+              <tr>
+                <td><strong class="control-label">Remaining Balance:</strong></td>
+                <td><%= current_user.current_amount %></td>
+              </tr>
+              
+              <tr>
+                <td><strong class="control-label">Food Expenditure:</strong></td>
+                <td><%= food = current_user.food_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
+              </td>
+              <tr>
+                <td><strong class="control-label">Transport Expenditure:</strong></td>
+                <td><%= transport = current_user.transport_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum  %></td>
+              </tr>
+              
+              <tr>
+                <td><strong class="control-label">Hotel Expenditure:</strong></td>
+                <td><%= hotel = current_user.hotel_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:total_amount).sum %></td>
+              </tr>
+              <tr>
+                <td><strong class="control-label">Miscellaneous Expenditure:</strong></td>
+                <td><%= extra = current_user.extra_expenditures.where("created_at >= ? and created_at <= ?",Time.now.beginning_of_day,Time.now).map(&:payment).sum %></td>
+              </tr>
+
+              <tr>
+                <td><strong class="control-label">Total Expenditures:</strong></td>
+                <td><%= food+hotel+extra+transport %></td>
+              </tr>
+              </table>
+            </div>
+
+            <div class="col-lg-7">
+              <%= column_chart({"Food" => food,"Hotel"=>hotel,"transport"=>transport,"Extra"=>extra}) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
