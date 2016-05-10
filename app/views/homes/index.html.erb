@@ -117,9 +117,9 @@
                     <td><%= ad.hotel_name %></td>
                     <td><%= ad.total_days %></td>
                     <td><%= ad.no_of_rooms %></td>
-                    <td><%= ad.room_type %></td>
+                    <td><%= ad.d_room_type.to_s + "," + ad.d_room_type.to_s + "," + ad.q_room_type.to_s %></td>
                     <td><%= ad.no_of_persons %></td>
-                    <td><%= ad.charges_per_day %></td>
+                    <td><%= ad.charge_d_room.to_s + ","+ad.charge_t_room.to_s+","+ad.charge_q_room.to_s %></td>
                     <td><%= ad.total_days %></td>              
                     <td style="text-align:right;">                
                       <%= link_to 'Show', ad,:class=>"list-product-show" %>
